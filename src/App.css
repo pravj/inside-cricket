@@ -1,0 +1,65 @@
+body {
+  background-color: #c4e0f9;
+}
+
+/*
+.ic {
+  text-align: center;
+}
+*/
+
+.ic-logo {
+  animation: ic-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.ic-header {
+  padding: 20px;
+  color: #2b4141;
+  text-align: center;
+}
+
+.ic-title {
+  font-size: 3.2em;
+  margin-bottom: 10px;
+}
+
+.ic-intro {
+  font-size: large;
+  padding-left: 10%;
+  padding-right: 10%;
+  text-align: center;
+}
+
+.ic-author {
+  padding-top: 30px;
+  font-size: 0.8em;
+}
+
+.ic-author a {
+  color: #222222;
+}
+
+.ic-table-button {
+  text-align: center;
+}
+
+.ic-table-container {
+  text-align: left;
+  margin: 0 auto;
+  width: max-content;
+}
+
+.ic-table-container-item {
+  border-bottom: 1px solid #90d5d8;
+}
+
+.ic-center-content {
+  padding-left: 10%;
+  padding-right: 10%;
+}
+
+@keyframes ic-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
