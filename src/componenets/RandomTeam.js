@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+// TODO: Show the ICC 2016 team on render
+
 const topOrderPlayers = [
   {name: 'Sachin Tendulkar', team: 'IND'},
   {name: 'Chris Gayle', team: 'WI'},
@@ -182,7 +184,7 @@ class RandomTeamTable extends Component {
 
   render() {
     const playerList = this.state.players.map((player) => (
-        <div className="ic-table-container-item"><img style={{ paddingRight: '20px', position: 'relative', top: '2px' }} src={RandomTeamTable.flagURL(player.team)}/>{player.name} {player.tag ? player.tag : ''}</div>
+        <div key={player.name} className="ic-table-container-item"><img style={{ paddingRight: '20px', position: 'relative', top: '2px' }} src={RandomTeamTable.flagURL(player.team)}/>{player.name} {player.tag ? player.tag : ''}</div>
     ));
 
     return (

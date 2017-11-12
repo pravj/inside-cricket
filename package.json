@@ -3,6 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "d3": "^4.11.0",
+    "d3-tip": "^0.7.1",
     "react": "^16.1.0",
     "react-dom": "^16.1.0"
   },

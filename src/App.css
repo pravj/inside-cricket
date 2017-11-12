@@ -3,10 +3,37 @@ body {
 }
 
 /*
-.ic {
+d3-tip
+*/
+
+.d3-tip {
+  line-height: 1;
+  padding: 5px;
+  background: rgba(0, 0, 0, 0.9);
+  color: #fff;
+  border-radius: 2px;
+}
+
+.d3-tip:after {
+  box-sizing: border-box;
+  display: inline;
+  font-size: 6px;
+  width: 100%;
+  line-height: 1;
+  color: rgba(0, 0, 0, 0.8);
+  content: "\25BC";
+  position: absolute;
   text-align: center;
 }
-*/
+
+.d3-tip.n:after {
+  content: "\25BC";
+  margin: -1px 0 0 0;
+  top: 100%;
+  left: 0;
+  text-align: center;
+}
+
 
 .ic-logo {
   animation: ic-logo-spin infinite 20s linear;
@@ -29,6 +56,10 @@ body {
   padding-left: 10%;
   padding-right: 10%;
   text-align: center;
+}
+
+.ic-intro a {
+  color: #222222;
 }
 
 .ic-author {
@@ -57,6 +88,11 @@ body {
 .ic-center-content {
   padding-left: 10%;
   padding-right: 10%;
+}
+
+.ic-team-matrix {
+  padding-top: 10px;
+  text-align: center;
 }
 
 @keyframes ic-logo-spin {
