@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import RandomTeamTable from './componenets/RandomTeam'
 import TeamMatrix from './componenets/TeamMatrix'
+import SachinCenturies from './componenets/SachinCenturies'
 //import d3 from './d3.v3.min'
 // import logo from './logo.svg';
 // <img src={logo} className="App-logo" alt="logo" />
@@ -26,6 +27,10 @@ class App extends Component {
 
         <div>
           <TeamMatrix/>
+        </div>
+
+        <div>
+          <SachinCenturies/>
         </div>
       </div>
     );

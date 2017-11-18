@@ -1,5 +1,6 @@
+/* background-color: #c4e0f9; */
 body {
-  background-color: #c4e0f9;
+  background-color: #F1F1F1;
 }
 
 /*
@@ -91,6 +92,11 @@ d3-tip
 }
 
 .ic-team-matrix {
+  padding-top: 10px;
+  text-align: center;
+}
+
+.ic-sachin-century {
   padding-top: 10px;
   text-align: center;
 }

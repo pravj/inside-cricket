@@ -183,8 +183,8 @@ class RandomTeamTable extends Component {
   }
 
   render() {
-    const playerList = this.state.players.map((player) => (
-        <div key={player.name} className="ic-table-container-item"><img style={{ paddingRight: '20px', position: 'relative', top: '2px' }} src={RandomTeamTable.flagURL(player.team)}/>{player.name} {player.tag ? player.tag : ''}</div>
+    const playerList = this.state.players.map((player, index) => (
+        <div key={index} className="ic-table-container-item"><img style={{ paddingRight: '20px', position: 'relative', top: '2px' }} src={RandomTeamTable.flagURL(player.team)}/>{player.name} {player.tag ? player.tag : ''}</div>
     ));
 
     return (
