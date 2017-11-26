@@ -1,0 +1,88 @@
+id,name,type,year
+AFG,Afghanistan,F,2017
+AUS,Australia,F,1909
+BGD,Bangladesh,F,2000
+GBR,England,F,1909
+IND,India,F,1926
+IRL,Ireland,F,2017
+NZL,New Zealand,F,1926
+PAK,Pakistan,F,1952
+ZAF,South Africa,F,1909
+LKA,Sri Lanka,F,1981,
+BHS,West Indies,F,1926
+ZWE,Zimbabwe,F,1992
+BTN,Bhutan,A,2001
+CHN,China,A,2004
+IRN,Iran,A,2003
+KWT,Kuwait,A,1998
+MYS,Malaysia,A,1967
+MMR,Myanmar,A,2006
+NPL,Nepal,A,1996
+OMN,Oman,A,2014
+QAT,Qatar,A,1999
+SAU,Saudi Arabia,A,2016
+THA,Thailand,A,1995
+ARE,United Arab Emirates,A,1990
+AUT,Austria,A,1992
+BEL,Belgium,A,1991
+BGR,Bulgaria,A,2008
+HRV,Croatia,A,2001
+CYP,Cyprus,A,1999
+CZE,Czech Republic,A,2000
+DNK,Denmark,A,1966
+EST,Estonia,A,2008
+FIN,Finland,A,2000
+FRA,France,A,1998
+DEU,Germany,A,1998
+GRC,Greece,A,1995
+HUN,Hungary,A,2012
+ISR,Israel,A,1974
+ITA,Italy,A,1995
+LUX,Luxembourg,A,1998
+NLD,Netherlands,A,1966
+NOR,Norway,A,2000
+PRT,Portugal,A,1996
+ROU,Romania,A,2013
+RUS,Russia,A,2012
+SRB,Serbia,A,2015
+SVN,Slovenia,A,2005
+ESP,Spain,A,1992
+SWE,Sweden,A,1997
+TUR,Turkey,A,2008
+FJI,Fiji,A,1965
+IDN,Indonesia,A,2001
+JPN,Japan,A,1989
+PNG,Papua New Guinea,A,1973
+PHL,Philippines,A,2000
+KOR,South Korea,A,2001
+VUT,Vanuatu,A,2009
+BWA,Botswana,A,2001
+CMR,Cameroon,A,2007
+GMB,Gambia,A,2002
+GHA,Ghana,A,2002
+KEN,Kenya,A,1981
+LSO,Lesotho,A,2001
+MWI,Malawi,A,2003
+MLI,Mali,A,2005
+MAR,Morocco,A,1999
+MOZ,Mozambique,A,2003
+NAM,Namibia,A,1992
+NGA,Nigeria,A,2002
+RWA,Rwanda,A,2003
+SLE,Sierra Leone,A,2002
+SWZ,Swaziland,A,2007
+TZA,Tanzania,A,2001
+UGA,Uganda,A,1998
+ZMB,Zambia,A,2003
+ARG,Argentina,A,1974
+BHS,Bahamas,A,1987
+BLZ,Belize,A,1997
+BRA,Brazil,A,2002
+CAN,Canada,A,1968
+CHL,Chile,A,2002
+CRI,Costa Rica,A,2002
+FLK,Falkland Islands,A,2007
+MEX,Mexico,A,2004
+PAN,Panama,A,2002
+PER,Peru,A,2007
+SUR,Suriname,A,2002
