@@ -140,6 +140,27 @@ d3-tip
   text-align: center;
 }
 
+.ic-ashes {
+  padding-top: 10px;
+  text-align: center;
+}
+
+.ic-ashes-banner {
+  display: inline-block;
+  max-width: 50%;
+  height: auto;
+  background-color: #2A2D34;
+  color: #FFFFFF;
+  -moz-box-shadow:    inset 0 0 5px #EDEDED;
+  -webkit-box-shadow: inset 0 0 5px #EDEDED;
+  box-shadow:         inset 0 0 5px #EDEDED;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 20px;
+  padding-right: 20px;
+  margin-bottom: 20px;
+}
+
 @keyframes ic-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
