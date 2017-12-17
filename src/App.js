@@ -4,6 +4,7 @@ import TeamMatrix from './componenets/TeamMatrix'
 import SachinCenturies from './componenets/SachinCenturies'
 import WorldMap from './componenets/WorldMap'
 import Ashes from './componenets/Ashes'
+import RunChase from './componenets/RunChase'
 //import d3 from './d3.v3.min'
 // import logo from './logo.svg';
 // <img src={logo} className="App-logo" alt="logo" />
@@ -28,6 +29,10 @@ import './skeleton.min.css';
         <div>
           <WorldMap/>
         </div>
+
+        <div>
+          <Ashes/>
+        </div>
         -->
 
 * */
@@ -46,7 +51,7 @@ class App extends Component {
         </p>
 
         <div>
-          <Ashes/>
+          <RunChase/>
         </div>
       </div>
     );

@@ -75,6 +75,10 @@ d3-tip
   height: 80px;
 }
 
+/*
+  background-image: url("https://images.unsplash.com/photo-1512719994953-eabf50895df7");
+
+*/
 .ic-header {
   padding: 20px;
   color: #2b4141;
@@ -159,6 +163,11 @@ d3-tip
   padding-left: 20px;
   padding-right: 20px;
   margin-bottom: 20px;
+}
+
+.ic-runchase {
+  padding-top: 10px;
+  text-align: center;
 }
 
 @keyframes ic-logo-spin {
