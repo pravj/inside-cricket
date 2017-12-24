@@ -170,6 +170,20 @@ d3-tip
   text-align: center;
 }
 
+.ic-dhoni-finishes {
+  padding-top: 10px;
+  text-align: center;
+}
+
+.ic-individual-score {
+  padding-top: 10px;
+  text-align: center;
+}
+
+.ic-individual-score-year {
+  background-color: #fdf0d5;;
+}
+
 @keyframes ic-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }

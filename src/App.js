@@ -5,6 +5,8 @@ import SachinCenturies from './componenets/SachinCenturies'
 import WorldMap from './componenets/WorldMap'
 import Ashes from './componenets/Ashes'
 import RunChase from './componenets/RunChase'
+import DhoniFinishes from './componenets/DhoniFinishes'
+import IndividualScoreWithTime from './componenets/IndividualScoreWithTime'
 //import d3 from './d3.v3.min'
 // import logo from './logo.svg';
 // <img src={logo} className="App-logo" alt="logo" />
@@ -12,8 +14,8 @@ import './App.css';
 import './skeleton.min.css';
 
 /*
-
 <!--
+
         <div>
           <RandomTeamTable/>
         </div>
@@ -33,8 +35,12 @@ import './skeleton.min.css';
         <div>
           <Ashes/>
         </div>
-        -->
 
+        <div>
+          <RunChase/>
+        </div>
+
+-->
 * */
 
 class App extends Component {
@@ -51,8 +57,9 @@ class App extends Component {
         </p>
 
         <div>
-          <RunChase/>
+          <IndividualScoreWithTime/>
         </div>
+
       </div>
     );
   }
