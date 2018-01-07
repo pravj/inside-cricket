@@ -7,6 +7,7 @@ import Ashes from './componenets/Ashes'
 import RunChase from './componenets/RunChase'
 import DhoniFinishes from './componenets/DhoniFinishes'
 import IndividualScoreWithTime from './componenets/IndividualScoreWithTime'
+import StrikeAndAverageODI from './componenets/StrikeAndAverageODI'
 //import d3 from './d3.v3.min'
 // import logo from './logo.svg';
 // <img src={logo} className="App-logo" alt="logo" />
@@ -57,7 +58,42 @@ class App extends Component {
         </p>
 
         <div>
-          <IndividualScoreWithTime/>
+          <StrikeAndAverageODI/>
+        </div>
+
+        <div>
+          <ul>
+            <li>a</li>
+            <li>a</li>
+            <li>a</li>
+            <li>a</li>
+            <li>a</li>
+            <li>a</li>
+            <li>a</li>
+            <li>a</li>
+            <li>a</li>
+            <li>a</li>
+            <li>a</li>
+            <li>a</li>
+            <li>a</li>
+            <li>a</li>
+            <li>a</li>
+            <li>a</li>
+            <li>a</li>
+            <li>a</li>
+            <li>a</li>
+            <li>a</li>
+            <li>a</li>
+            <li>a</li>
+            <li>a</li>
+            <li>a</li>
+            <li>a</li>
+            <li>a</li>
+            <li>a</li>
+            <li>a</li>
+            <li>a</li>
+            <li>a</li>
+          </ul>
         </div>
 
       </div>

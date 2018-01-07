@@ -3299,6 +3299,10 @@ interpret@^1.0.0:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/interpret/-/interpret-1.0.4.tgz#820cdd588b868ffb191a809506d6c9c8f212b1b0"
 
+intersection-observer@^0.5.0:
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/intersection-observer/-/intersection-observer-0.5.0.tgz#9fe8bee3953c755b1485c38efd9633d535775ea6"
+
 invariant@^2.2.2:
   version "2.2.2"
   resolved "https://registry.yarnpkg.com/invariant/-/invariant-2.2.2.tgz#9e1f56ac0acdb6bf303306f338be3b204ae60360"
@@ -5662,6 +5666,12 @@ schema-utils@^0.3.0:
   dependencies:
     ajv "^5.0.0"
 
+scrollama@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/scrollama/-/scrollama-1.0.0.tgz#a0f5783a2485d211143509496078d2f68a2bf616"
+  dependencies:
+    intersection-observer "^0.5.0"
+
 select-hose@^2.0.0:
   version "2.0.0"
   resolved "https://registry.yarnpkg.com/select-hose/-/select-hose-2.0.0.tgz#625d8658f865af43ec962bfc376a37359a4994ca"
@@ -5905,6 +5915,10 @@ sshpk@^1.7.0:
 "statuses@>= 1.3.1 < 2", statuses@~1.3.1:
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/statuses/-/statuses-1.3.1.tgz#faf51b9eb74aaef3b3acf4ad5f61abf24cb7b93e"
+
+stickyfilljs@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/stickyfilljs/-/stickyfilljs-2.0.3.tgz#c0e7967d6c79a1d069ba80daccdb71d40dee9775"
 
 stream-browserify@^2.0.1:
   version "2.0.1"
