@@ -195,7 +195,7 @@ d3-tip
 border-top: 2px dashed #000;
 border-bottom: 2px dashed #000;
 */
-#batscroll, #bowlscroll {
+#batscroll, #bowlscroll, #allscroll {
   position: relative;
 }
 
@@ -252,7 +252,7 @@ width: fit-content;
   pointer-events: none;
 }
 
-.batstep, .bowlstep {
+.step {
   margin: 0 auto 300px;
   width: fit-content;
   max-width: 60%;
@@ -261,18 +261,18 @@ width: fit-content;
   /* border-bottom: none; */
 }
 
-.batstep:last-child, .bowlstep:last-child {
+.step:last-child {
   border-bottom: 1px solid #333;
 }
 
-.batstep.is-active, .batstep.is-active {
+.step.is-active {
   visibility: visible;
   background-color: #FFFFFF;
   border: 1px solid #DCDCDC;
   box-shadow: 1px 1px 5px rgba(10,10,10,0.10);
 }
 
-.batstep p, .bowlstep p {
+.step p {
   text-align: center;
   padding: 1rem;
   font-size: 1.5rem;

@@ -1309,6 +1309,49 @@ const batsmen = [
   }
 ];
 
+/*
+all-rounder players
+*/
+
+const p = ['CL Cairns',
+  'CZ Harris',
+  'SR Waugh',
+  'IVA Richards',
+  'ST Jayasuriya',
+  'SR Watson',
+  'Shakib Al Hasan',
+  'SB Styris',
+  'Abdul Razzaq',
+  'JH Kallis',
+  'A Symonds',
+  'Shoaib Malik',
+  'SR Tendulkar',
+  'Shahid Afridi',
+  'CL Hooper',
+  'Mohammad Hafeez',
+  'CH Gayle'];
+
+// all rounder players in the order of batsmen to bowler
+const allRounders = [
+  { name: 'SR Tendulkar', runs: 18426, wickets: 154 },
+  { name: 'CH Gayle', runs: 9420, wickets: 163 },
+  { name: 'IVA Richards', runs: 6721, wickets: 118 },
+  { name: 'Shoaib Malik', runs: 6926, wickets: 154 },
+  { name: 'Mohammad Hafeez', runs: 5959, wickets: 136 },
+  { name: 'JH Kallis', runs: 11579, wickets: 273 },
+  { name: 'ST Jayasuriya', runs: 13430, wickets: 323 },
+  { name: 'SR Waugh', runs: 7569, wickets: 195 },
+  { name: 'A Symonds', runs: 5088, wickets: 133 },
+  { name: 'SR Watson', runs: 5757, wickets: 168 },
+  { name: 'SB Styris', runs: 4483, wickets: 137 },
+  { name: 'CL Hooper', runs: 5761, wickets: 193 },
+  { name: 'CL Cairns', runs: 4950, wickets: 201 },
+  { name: 'Shakib Al Hasan', runs: 5080, wickets: 226 },
+  { name: 'CZ Harris', runs: 4379, wickets: 203 },
+  { name: 'Shahid Afridi', runs: 8064, wickets: 395 },
+  { name: 'Abdul Razzaq', runs: 5080, wickets: 269 },
+];
+
 // const colors = ['#feedde', '#fdbe85', '#fd8d3c', '#e6550d', '#a63603'];
 // const colors = ['#feb24c', '#fd8d3c', '#fc4e2a', '#e31a1c', '#bd0026', '#800026'];
 const colors = ['#7fcdbb', '#41b6c4', '#1d91c0', '#225ea8', '#253494', '#081d58'];
@@ -1398,7 +1441,7 @@ class StrikeAndAverageODI extends Component {
     const container = d3.select('#batscroll');
     const graphic = container.select('.scroll__graphic');
     const text = container.select('.scroll__text');
-    const step = text.selectAll('.batstep');
+    const step = text.selectAll('.step');
 
     // instantiate the scrollama
     const batScroller = scrollama();
@@ -1406,10 +1449,11 @@ class StrikeAndAverageODI extends Component {
     // callback functions (scrollama event handlers)
     const handleStepEnter = (response) => {
       // response = { element, direction, index }
-      console.log('bat step enter');
+      console.log('bat step enter', response.index);
 
       // add color to current step only
       step.classed('is-active', function (d, i) {
+        console.log('step', i, response.index);
         return i === response.index;
       })
 
@@ -1435,6 +1479,9 @@ class StrikeAndAverageODI extends Component {
       // un-sticky the graphic, and pin to top/bottom of container
       graphic.classed('is-fixed', false);
       graphic.classed('is-bottom', response.direction === 'down');
+
+      // remove is-active from step elements
+      step.classed('is-active', false);
     };
 
     // setup the instance, pass callback functions
@@ -1442,7 +1489,7 @@ class StrikeAndAverageODI extends Component {
       container: '#batscroll',
       graphic: '.scroll__graphic',
       text: '.scroll__text',
-      step: '.scroll__text .batstep',
+      step: '.scroll__text .step.bat',
       debug: false,
       offset: 0.5,
     })
@@ -1542,7 +1589,7 @@ class StrikeAndAverageODI extends Component {
     const bowlContainer = d3.select('#bowlscroll');
     const bowlGraphic = bowlContainer.select('.scroll__graphic');
     const bowlText = bowlContainer.select('.scroll__text');
-    const bowlStep = bowlText.selectAll('.bowlstep');
+    const bowlStep = bowlText.selectAll('.step');
 
     console.log(bowlContainer, bowlGraphic, bowlStep, bowlText)
 
@@ -1551,11 +1598,12 @@ class StrikeAndAverageODI extends Component {
 
     // callback functions (scrollama event handlers)
     const bowlHandleStepEnter = (response) => {
-      console.log('bowl step enter');
+      console.log('bowl step enter', response.index);
       // response = { element, direction, index }
 
       // add color to current step only
       bowlStep.classed('is-active', function (d, i) {
+        console.log('bowl', i, response.index);
         return i === response.index;
       })
 
@@ -1588,7 +1636,7 @@ class StrikeAndAverageODI extends Component {
       container: '#bowlscroll',
       graphic: '.scroll__graphic',
       text: '.scroll__text',
-      step: '.scroll__text .bowlstep',
+      step: '.scroll__text .step.ball',
       debug: false,
       offset: 0.5,
     })
@@ -1688,36 +1736,92 @@ class StrikeAndAverageODI extends Component {
         .text('— (Economy Rate) economic bowler ⟶');
 
     /*
-
+    all rounder
      */
+
+    // create an svg container
+    const allVis = d3.select(".ic-odi-strike-and-average-all-rounder").append("svg:svg")
+        .attr("width", width)
+        .attr("height", (allRounders.length + 1) * 40);
+
+    const xPad = isSmallDevice ? 40 : 120;
+    console.log('xpad', xPad);
+
+    // left circle represents the runs
+    allVis.selectAll('.all-rounder-left-circle')
+        .data(allRounders)
+        .enter().append('circle')
+        .attr('fill', function (d) {
+          return colors[Math.round(d.runs/3500)];
+        })
+        .attr('cx', xPad)
+        .attr('cy', function (d, i) {
+          return (i + 1) * 40;
+        })
+        .attr('r', function (d) {
+          return d.runs/1000;
+        });
+
+    // right circle represents the wickets
+    allVis.selectAll('.all-rounder-right-circle')
+        .data(allRounders)
+        .enter().append('circle')
+        .attr('fill', function (d) {
+          return colors[Math.round(d.wickets/75)];
+        })
+        .attr('cx', width - xPad)
+        .attr('cy', function (d, i) {
+          return (i + 1) * 40;
+        })
+        .attr('r', function (d) {
+          return d.wickets/25;
+        });
+
+    // name of all rounder players
+    allVis.selectAll('.all-rounder-name')
+        .data(allRounders)
+        .enter().append('text')
+        .attr('x', '50%')
+        .attr('y', function (d, i) {
+          return (i + 1) * 40;
+        })
+        .attr('dy', 5)
+        .style('text-anchor', 'middle')
+        .text(function (d) {
+          return d.name;
+        });
   }
 
   render() {
     return (
         <div className="ic-odi-strike-and-average">
           <div id="batscroll">
-            <div className="batscroll__graphic">
+            <div className="scroll__graphic">
               <div className="ic-odi-strike-and-average-batsmen"/>
             </div>
-            <div className="batscroll__text">
-              <div className='batstep' data-step='1'><p>This is the first paragraph that we will render</p></div>
-              <div className='batstep' data-step='2'><p>This is the second paragraph that we will render</p></div>
-              <div className='batstep' data-step='3'><p>This is the third paragraph that we will render</p></div>
-              <div className='batstep' data-step='4'><p>This is the fourth paragraph that we will render</p></div>
+            <div className="scroll__text">
+              <div className='step bat' data-step='1'><p>This is the first paragraph that we will render</p></div>
+              <div className='step bat' data-step='2'><p>This is the second paragraph that we will render</p></div>
+              <div className='step bat' data-step='3'><p>This is the third paragraph that we will render</p></div>
+              <div className='step bat' data-step='4'><p>This is the fourth paragraph that we will render</p></div>
+              <div className='step bat' data-step='5'/>
             </div>
           </div>
 
           <div id="bowlscroll">
-            <div className="bowlscroll__graphic">
+            <div className="scroll__graphic">
               <div className="ic-odi-strike-and-average-bowlers"/>
             </div>
-            <div className="bowlscroll__text">
-              <div className='bowlstep' data-step='1'><p>This is the first paragraph that we will render</p></div>
-              <div className='bowlstep' data-step='2'><p>This is the second paragraph that we will render</p></div>
-              <div className='bowlstep' data-step='3'><p>This is the third paragraph that we will render</p></div>
-              <div className='bowlstep' data-step='4'><p>This is the fourth paragraph that we will render</p></div>
+            <div className="scroll__text">
+              <div className='step ball' data-step='1'><p>This is the first paragraph that we will render</p></div>
+              <div className='step ball' data-step='2'><p>This is the second paragraph that we will render</p></div>
+              <div className='step ball' data-step='3'><p>This is the third paragraph that we will render</p></div>
+              <div className='step ball' data-step='4'><p>This is the fourth paragraph that we will render</p></div>
+              <div className='step ball' data-step='5'/>
             </div>
           </div>
+
+          <div className="ic-odi-strike-and-average-all-rounder"/>
         </div>
     );
   }
