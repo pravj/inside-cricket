@@ -8,6 +8,7 @@ import RunChase from './componenets/RunChase'
 import DhoniFinishes from './componenets/DhoniFinishes'
 import IndividualScoreWithTime from './componenets/IndividualScoreWithTime'
 import StrikeAndAverageODI from './componenets/StrikeAndAverageODI'
+import MultiFormatPerformance from './componenets/MultiFormatPerformance'
 //import d3 from './d3.v3.min'
 // import logo from './logo.svg';
 // <img src={logo} className="App-logo" alt="logo" />
@@ -58,43 +59,35 @@ class App extends Component {
         </p>
 
         <div>
-          <StrikeAndAverageODI/>
+          <MultiFormatPerformance/>
         </div>
 
-        <div>
-          <ul>
-            <li>a</li>
-            <li>a</li>
-            <li>a</li>
-            <li>a</li>
-            <li>a</li>
-            <li>a</li>
-            <li>a</li>
-            <li>a</li>
-            <li>a</li>
-            <li>a</li>
-            <li>a</li>
-            <li>a</li>
-            <li>a</li>
-            <li>a</li>
-            <li>a</li>
-            <li>a</li>
-            <li>a</li>
-            <li>a</li>
-            <li>a</li>
-            <li>a</li>
-            <li>a</li>
-            <li>a</li>
-            <li>a</li>
-            <li>a</li>
-            <li>a</li>
-            <li>a</li>
-            <li>a</li>
-            <li>a</li>
-            <li>a</li>
-            <li>a</li>
-          </ul>
-        </div>
+        <ul>
+          <li>a</li>
+          <li>a</li>
+          <li>a</li>
+          <li>a</li>
+          <li>a</li>
+          <li>a</li>
+          <li>a</li>
+          <li>a</li>
+          <li>a</li>
+          <li>a</li>
+          <li>a</li>
+          <li>a</li>
+          <li>a</li>
+          <li>a</li>
+          <li>a</li>
+          <li>a</li>
+          <li>a</li>
+          <li>a</li>
+          <li>a</li>
+          <li>a</li>
+          <li>a</li>
+          <li>a</li>
+          <li>a</li>
+          <li>a</li>
+        </ul>
 
       </div>
     );
