@@ -9,6 +9,7 @@ import DhoniFinishes from './componenets/DhoniFinishes'
 import IndividualScoreWithTime from './componenets/IndividualScoreWithTime'
 import StrikeAndAverageODI from './componenets/StrikeAndAverageODI'
 import MultiFormatPerformance from './componenets/MultiFormatPerformance'
+import PlayerAge from './componenets/PlayerAge'
 //import d3 from './d3.v3.min'
 // import logo from './logo.svg';
 // <img src={logo} className="App-logo" alt="logo" />
@@ -17,6 +18,34 @@ import './skeleton.min.css';
 
 /*
 <!--
+
+import time
+    ...: for p in players:
+    ...:     time.sleep(2)
+    ...:
+    ...:     res = requests.get(p['url'])
+    ...:     content = res.text
+    ...:
+    ...:     soup = BeautifulSoup(content, 'html.parser')
+    ...:
+    ...:     try:
+    ...:         p['dob'] = soup.find_all('p', class_='ciPlayerinformationtxt')[1].text
+    ...:     except:
+    ...:         p['dob'] = 'NA'
+    ...:
+    ...:     p['debuts'] = []
+    ...:     try:
+    ...:         p['debuts'].append(soup.find_all("tr", class_="data2")[0].find_all("td")[1].text)
+    ...:     except:
+    ...:         pass
+    ...:
+    ...:     try:
+    ...:         p['debuts'].append(soup.find_all("tr", class_="data2")[2].find_all("td")[1].text)
+    ...:     except:
+    ...:         pass
+    ...:     print(p)
+
+    
 
         <div>
           <RandomTeamTable/>
@@ -59,35 +88,8 @@ class App extends Component {
         </p>
 
         <div>
-          <MultiFormatPerformance/>
+          <PlayerAge/>
         </div>
-
-        <ul>
-          <li>a</li>
-          <li>a</li>
-          <li>a</li>
-          <li>a</li>
-          <li>a</li>
-          <li>a</li>
-          <li>a</li>
-          <li>a</li>
-          <li>a</li>
-          <li>a</li>
-          <li>a</li>
-          <li>a</li>
-          <li>a</li>
-          <li>a</li>
-          <li>a</li>
-          <li>a</li>
-          <li>a</li>
-          <li>a</li>
-          <li>a</li>
-          <li>a</li>
-          <li>a</li>
-          <li>a</li>
-          <li>a</li>
-          <li>a</li>
-        </ul>
 
       </div>
     );

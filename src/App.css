@@ -211,6 +211,21 @@ d3-tip
   background-color: #fdf0d5;;
 }
 
+.ic-player-age {
+  padding-top: 10px;
+  text-align: center;
+}
+
+.ic-player-age-title {
+  padding-top: 10px;
+  text-align: center;
+}
+
+.ic-late-comers {
+  padding-top: 30px;
+  text-align: center;
+}
+
 /* scrollama */
 
 /*
