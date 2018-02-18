@@ -19,6 +19,36 @@ import './skeleton.min.css';
 /*
 <!--
 
+<div>
+          <SachinCenturies/>
+        </div>
+
+        <div>
+          <RunChase/>
+        </div>
+
+        <div>
+          <MultiFormatPerformance/>
+        </div>
+
+        <div>
+          <PlayerAge/>
+        </div>
+
+        <div>
+          <Ashes/>
+        </div>
+
+        <div className="ic-section-title">"Sachin's Centuries: Superstitions vs Statistics"</div>
+
+        <p className="ic-intro">
+          He is considered the greatest batsman of all time. With a career spanning over 24 years, he holds the record for the most runs in both ODI and Test match format. Sachin is the only player to have scored a hundred centuries (100+ runs) in international cricket (49 in ODI and 51 in Test).
+        </p>
+
+        <p className="ic-intro">
+          I grew up hearing that "<b>India loses a match every time Sachin hits a century</b>". Let's see if it's true. #MythBustersModeOn
+        </p>
+
 import time
     ...: for p in players:
     ...:     time.sleep(2)
@@ -117,7 +147,7 @@ class App extends Component {
         </p>
 
         <p className="ic-quote">
-          The Britsh were not enthusiastic about the prospect of American participation in world cricket. When the ICC was established, it excluded countries from outside the British Empire from any role in its procedings, a move which undercut any movement towards the professionalization of the sport in the United States.
+          The British were not enthusiastic about the prospect of American participation in world cricket. When the ICC was established, it excluded countries from outside the British Empire from any role in its procedings, a move which undercut any movement towards the professionalization of the sport in the United States.
           <p className="ic-quote-author">Deb K. Das (Cricket Historian) <a target="_blank" href="http://web.uvic.ca/vv/student/cricket/empire/canada.html">[1]</a></p>
         </p>
 
@@ -125,34 +155,30 @@ class App extends Component {
           As per the condition now, Cricket is fighting with <i>Soccer</i> and <i>Basketball</i> for a global spot. The ICC is working on the global expansion but they find themselves in a dilemma where the new T20 format is becoming a threat to the old Test match format.
         </p>
 
-        <div className="ic-section-title">"Sachin's Centuries: Superstitions vs Statistics"</div>
+        <div className="ic-section-title">"The Ashes: Cricket's Oldest Rivalry"</div>
 
         <p className="ic-intro">
-          He is considered the greatest batsman of all time. With a career spanning over 24 years, he holds the record for the most runs in both ODI and Test match format. Sachin is the only player to have scored a hundred centuries (100+ runs) in international cricket (49 in ODI and 51 in Test).
+          The story dates back to the early days of cricket. In 1882, England lost a match against Australia for the first time on the home ground in Oval.
+          A British newspaper <i>Sporting Times</i> published a satirical obituary the next day, mocking the English team.
+        </p>
+
+        <p className="ic-quote">
+          In Affectionate Remembrance of ENGLISH CRICKET, which died at the Oval on 29 August 1882, Deeply lamented by a large circle of sorrowing friends and acquaintances.
+          <pre>R.I.P.</pre>
+          <pre>N.B. – The body will be cremated and the ashes taken to Australia.</pre>
+          <p className="ic-quote-author">Sporting Times, 1882</p>
         </p>
 
         <p className="ic-intro">
-          I grew up hearing that "<b>India loses a match every time Sachin hits a century</b>". Let's see if it's true. #MythBustersModeOn
+          The English captain <i>Ivo Bligh</i> pledged to bring back the ashes in their upcoming tour to Australia. As promised, England won the next series with 2-1 and <i>won back the ashes</i>.
         </p>
 
-        <div>
-          <SachinCenturies/>
-        </div>
-
-        <div>
-          <RunChase/>
-        </div>
-
-        <div>
-          <MultiFormatPerformance/>
-        </div>
+        <p className="ic-intro">
+          The series is played every two year when a team visits another one to get back the ashes. The Ashes are regarded as being held by the team that most recently won the series. If the series is <i>drawn</i>, the team that currently holds the Ashes retains it.
+        </p>
 
         <div>
           <Ashes/>
-        </div>
-
-        <div>
-          <PlayerAge/>
         </div>
 
       </div>
