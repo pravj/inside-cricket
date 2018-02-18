@@ -90,6 +90,7 @@ function ready(error, data, population) {
 
 * */
 
+
 class WorldMap extends Component {
   static calculateOpacity(year, type) {
     if (type === 'full') {
@@ -246,16 +247,6 @@ class WorldMap extends Component {
         .defer(d3.csv, '/icc_members.csv')
         .await(onDataLoad);
 
-    // top legend for full members
-    const topLegendTitleVis = d3.select(".ic-world-map-legend-top-title").append("svg:svg")
-        .attr("width", width)
-        .attr("height", 30);
-
-    topLegendTitleVis.append("text")
-        .attr("x", margin.left)
-        .attr("y", 15)
-        .text("Full Members");
-
     const topLegendVis = d3.select(".ic-world-map-legend-top").append("svg:svg")
         .attr("width", width)
         .attr("height", 30);
@@ -291,17 +282,7 @@ class WorldMap extends Component {
         .attr("x", margin.left + 150)
         .attr("y", 15)
         .attr("font-size", 12)
-        .text("(2017)");
-
-    // bottom legend for associate members
-    const bottomLegendTitleVis = d3.select(".ic-world-map-legend-bottom-title").append("svg:svg")
-        .attr("width", width)
-        .attr("height", 30);
-
-    bottomLegendTitleVis.append("text")
-        .attr("x", margin.left)
-        .attr("y", 15)
-        .text("Associate Members");
+        .text("(2017) Full members");
 
     const bottomLegendVis = d3.select(".ic-world-map-legend-bottom").append("svg:svg")
         .attr("width", width)
@@ -338,18 +319,27 @@ class WorldMap extends Component {
         .attr("x", margin.left + 150)
         .attr("y", 15)
         .attr("font-size", 12)
-        .text("(2016)");
+        .text("(2016) Associate members");
   }
 
   render() {
-    return (
-        <div className="ic-world-map">
-          <div className="ic-world-map-legend">
-            <div style={{ position: 'relative', top: '20px' }} className="ic-world-map-legend-top-title"/>
-            <div className="ic-world-map-legend-top"/>
-            <div style={{ position: 'relative', top: '20px' }} className="ic-world-map-legend-bottom-title"/>
-            <div className="ic-world-map-legend-bottom"/>
+    /*
+    <div className="ic-world-map-legend">
+
+
+
+
           </div>
+
+          <p className="ic-world-map-legend-top-title">Full members</p>
+          <p className="ic-world-map-legend-bottom-title"/>
+    * */
+    return (
+        <div>
+          <p className="ic-chart-title" style={{ position: 'relative', top: '20px' }}>"ICC Member Countries"</p>
+          <div className="ic-world-map"/>
+          <div className="ic-world-map-legend-top"/>
+          <div className="ic-world-map-legend-bottom"/>
         </div>
     );
   }

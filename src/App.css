@@ -1,6 +1,7 @@
 /* background-color: #c4e0f9; */
 body {
-  background-color: #F1F1F1;
+  background-color: #FFFFFF;
+  font-family: Raleway;
 }
 
 /*
@@ -108,10 +109,26 @@ d3-tip
 }
 
 .ic-intro {
-  font-size: large;
-  padding-left: 10%;
-  padding-right: 10%;
-  text-align: center;
+  font-size: medium;
+  padding-left: 15%;
+  padding-right: 15%;
+  text-align: justify;
+}
+
+.ic-quote {
+  font-size: small;
+  padding-left: 20%;
+  padding-right: 20%;
+  text-align: justify;
+}
+
+.ic-quote-author:before {
+  content: "-";
+}
+
+.ic-quote-author {
+  font-weight: bold;
+  text-align: end;
 }
 
 .ic-intro a {
@@ -157,6 +174,16 @@ d3-tip
 }
 
 .ic-world-map {
+  padding-top: 10px;
+  text-align: center;
+}
+
+.ic-world-map-legend-top {
+  padding-top: 10px;
+  text-align: center;
+}
+
+.ic-world-map-legend-bottom {
   padding-top: 10px;
   text-align: center;
 }
@@ -232,7 +259,7 @@ d3-tip
 border-top: 2px dashed #000;
 border-bottom: 2px dashed #000;
 */
-#batscroll, #bowlscroll, #allscroll {
+#batscroll, #bowlscroll, #allscroll, #sachinscroll {
   position: relative;
 }
 
@@ -355,4 +382,36 @@ width: fit-content;
 @keyframes ic-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+/*
+Content style
+*/
+
+.ic-chart-title {
+  text-align: center;
+}
+
+.full-member-text {
+  color: rgb(39, 141, 170);
+  font-weight: bold;
+}
+
+.associate-member-text {
+  color: rgb(232, 63, 111);
+  font-weight: bold;
+}
+
+.ic-world-map-legend {
+  text-align: center;
+  margin-left: 25%;
+}
+
+.ic-section-title {
+  text-align: center;
+  font-weight: bold;
+  border-bottom: 1px solid;
+  width: max-content;
+  margin: auto;
+  margin-bottom: 20px;
 }

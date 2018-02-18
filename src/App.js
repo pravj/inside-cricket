@@ -83,9 +83,73 @@ class App extends Component {
           <p>A fifth umpire' view of your favorite sport</p>
           <p className="ic-author"><a href="https://twitter.com/hackpravj" target="_blank">Pravendra Singh</a></p>
         </header>
+
         <p className="ic-intro">
-          Cricket is not only a sport but a religion in India, we even have our own <a href="https://en.wikipedia.org/wiki/Sachin_Tendulkar" target="_blank">God of Cricket</a>.
+          Even though it's fighting to get a global attention, Cricket is one of the most followed sports in the world. So there is a good chance that you've heard of <i>Sir Don Bradman</i> or <i>Sachin Tendulkar</i>.
         </p>
+
+        <p className="ic-intro">
+          Cricket is not only a sport but a religion in India. We even have our own god, <i>Sachin Tendulkar</i>. I can vouch for my neighboring countries also that they have a similar situation because I have seen their love for the game.
+        </p>
+
+        <p className="ic-intro">
+          But when you look at it closely, you find that the situation is <i>not the same everywhere</i>.
+        </p>
+
+        <p className="ic-intro">
+          Originated in England, it started spreading to the other parts of the world, all thanks to the <i>British Empire</i>. But it's yet to come out of the post-colonial countries.
+        </p>
+
+        <p className="ic-intro">
+          International Cricket Council (ICC) is the global governing body of the game that offers two types of memberships. <span className="full-member-text">Full members</span> are countries qualified to play official Test matches and <span className="associate-member-text">Associate members</span> are countries where cricket is firmly established.
+        </p>
+
+        <div>
+          <WorldMap/>
+        </div>
+
+        <p className="ic-intro">
+          It's crystal clear that all the <span className="full-member-text">full members</span> are the countries where Britishers have ruled in the past.
+        </p>
+
+        <p className="ic-intro">
+          Another interesting thing to note, Canada is an <span className="associate-member-text">associate member</span> since 1968. There are records of civilian matches being played in the late 1700's near Montreal, but the game started losing its popularity in the modern time.
+        </p>
+
+        <p className="ic-quote">
+          The Britsh were not enthusiastic about the prospect of American participation in world cricket. When the ICC was established, it excluded countries from outside the British Empire from any role in its procedings, a move which undercut any movement towards the professionalization of the sport in the United States.
+          <p className="ic-quote-author">Deb K. Das (Cricket Historian) <a target="_blank" href="http://web.uvic.ca/vv/student/cricket/empire/canada.html">[1]</a></p>
+        </p>
+
+        <p className="ic-intro">
+          As per the condition now, Cricket is fighting with <i>Soccer</i> and <i>Basketball</i> for a global spot. The ICC is working on the global expansion but they find themselves in a dilemma where the new T20 format is becoming a threat to the old Test match format.
+        </p>
+
+        <div className="ic-section-title">"Sachin's Centuries: Superstitions vs Statistics"</div>
+
+        <p className="ic-intro">
+          He is considered the greatest batsman of all time. With a career spanning over 24 years, he holds the record for the most runs in both ODI and Test match format. Sachin is the only player to have scored a hundred centuries (100+ runs) in international cricket (49 in ODI and 51 in Test).
+        </p>
+
+        <p className="ic-intro">
+          I grew up hearing that "<b>India loses a match every time Sachin hits a century</b>". Let's see if it's true. #MythBustersModeOn
+        </p>
+
+        <div>
+          <SachinCenturies/>
+        </div>
+
+        <div>
+          <RunChase/>
+        </div>
+
+        <div>
+          <MultiFormatPerformance/>
+        </div>
+
+        <div>
+          <Ashes/>
+        </div>
 
         <div>
           <PlayerAge/>

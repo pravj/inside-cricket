@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import * as d3 from 'd3';
 import d3tip from 'd3-tip';
+import scrollama from 'scrollama';
 
 // TODO: First Century Gap
 
@@ -567,6 +568,8 @@ class SachinCenturies extends Component {
     const radiusFactor = (isSmallDevice ? 0.5 : 1);
 
     // century circles
+
+    /*
     vis.selectAll(".bar.century")
         .data(data)
         .enter().append("circle")
@@ -586,8 +589,10 @@ class SachinCenturies extends Component {
         })
         .on('mouseover', tip.show)
         .on('mouseout', tip.hide);
+    */
 
     // nervous ninety zone
+    /*
     vis.append("rect")
         .attr("x", innerPadding.left)
         .attr("y", yScale(100))
@@ -595,17 +600,151 @@ class SachinCenturies extends Component {
         .attr("height", yScale(90)-yScale(100))
         .attr("fill", "#ff0000")
         .attr("fill-opacity", "0.2");
+    */
+
+    /**/
+
+    // create the hundred circle for given innings
+    const createHundredCircleInRange = (i, j) => {
+      for (let idx = i; idx <= j; idx++) {
+        // only if it was a 100+ score
+        if (data[idx].run >= 100) {
+          vis.append('circle')
+              .attr('cx', xScale(new Date(data[idx].date)))
+              .attr('cy', yScale(data[idx].run))
+              .attr('r', (data[idx].run === 0 ? 0 : (data[idx].run < 100 ? 2 * radiusFactor : 5 * radiusFactor)))
+              .attr("fill", function () {
+                if((data[idx].run >= 90 && data[idx].run < 100) || (data[idx].won === undefined)) {
+                  return "#090909";
+                } else if (data[idx].won) {
+                  return "#138e39";
+                } else {
+                  return "#ff0000";
+                }
+              });
+        }
+      }
+    };
+
+    // create the tennis elbow injury zone
+    const createTennisElbowInjuryZone = () => {
+      vis.append("rect")
+          .attr("x", xScale(new Date("01/01/2004")))
+          .attr("y", yScale(230))
+          .attr("width", xScale(new Date("01/01/2007")) - xScale(new Date("01/01/2004")))
+          .attr("height", Math.abs(yScale(100) - yScale(230)))
+          .attr("fill", "#ad3237")
+          .attr("fill-opacity", "0.2");
+    };
+
+    const createNervousNintyPoints = () => {
+      for (let idx = 0; idx < data.length; idx++) {
+        // only if it was a [90, 100) score
+        if (data[idx].run < 100) {
+          vis.append('circle')
+              .attr('cx', xScale(new Date(data[idx].date)))
+              .attr('cy', yScale(data[idx].run))
+              .attr('r', (data[idx].run === 0 ? 0 : (data[idx].run < 100 ? 2 * radiusFactor : 5 * radiusFactor)))
+              .attr("fill", function () {
+                if((data[idx].run >= 90 && data[idx].run < 100) || (data[idx].won === undefined)) {
+                  return "#090909";
+                } else if (data[idx].won) {
+                  return "#138e39";
+                } else {
+                  return "#ff0000";
+                }
+              });
+        }
+      }
+
+      vis.append("rect")
+          .attr("x", innerPadding.left)
+          .attr("y", yScale(100))
+          .attr("width", width - (innerPadding.right + innerPadding.left))
+          .attr("height", yScale(90)-yScale(100))
+          .attr("fill", "#ff0000")
+          .attr("fill-opacity", "0.2");
+    };
 
     /*
-    // tennis elbow zone
-    vis.append("rect")
-        .attr("x", xScale(new Date("06/01/2003")))
-        .attr("y", yScale(210))
-        .attr("width", xScale(new Date("06/01/2006")) - xScale(new Date("06/01/2003")))
-        .attr("height", Math.abs(yScale(100) - yScale(210)))
-        .attr("fill", "#adadad")
-        .attr("fill-opacity", "0.2");
-    */
+    * scrollama
+    * */
+
+    // using d3 for convenience
+    const container = d3.select('#sachinscroll');
+    const graphic = container.select('.scroll__graphic');
+    const text = container.select('.scroll__text');
+    const step = text.selectAll('.step');
+
+    // instantiate the scrollama
+    const sachinScroller = scrollama();
+
+    // callback functions (scrollama event handlers)
+    const handleStepEnter = (response) => {
+      // response = { element, direction, index }
+      console.log('sachin step enter', response.index);
+
+      // add color to current step only
+      step.classed('is-active', function (d, i) {
+        console.log('step', i, response.index);
+        return i === response.index;
+      })
+
+      // update graphic based on step
+      graphic.select('p').text(response.index + 1);
+
+      if (response.index === 0) {
+        // add the circle for the first hundred
+        createHundredCircleInRange(1, 1);
+      } else if (response.index === 1) {
+        createHundredCircleInRange(2, 44);
+      } else if (response.index === 2) {
+        createTennisElbowInjuryZone();
+      } else if (response.index === 3) {
+        createHundredCircleInRange(45, 50);
+      } else if (response.index === 6) {
+        createHundredCircleInRange(51, 67);
+      } else if (response.index === 7) {
+        createNervousNintyPoints()
+      }
+    };
+
+    const handleContainerEnter = (response) => {
+      // response = { direction }
+      console.log('sachin container enter');
+
+      // old school
+      // sticky the graphic
+      graphic.classed('is-fixed', true);
+      graphic.classed('is-bottom', false);
+    };
+
+    const handleContainerExit = (response) => {
+      // response = { direction }
+      console.log('sachin container exit');
+
+      // old school
+      // un-sticky the graphic, and pin to top/bottom of container
+      graphic.classed('is-fixed', false);
+      graphic.classed('is-bottom', response.direction === 'down');
+
+      // remove is-active from step elements
+      step.classed('is-active', false);
+    };
+
+    // setup the instance, pass callback functions
+    sachinScroller.setup({
+      container: '#sachinscroll',
+      graphic: '.scroll__graphic',
+      text: '.scroll__text',
+      step: '.scroll__text .step.sachin',
+      debug: false,
+      offset: 0.5,
+    })
+        .onStepEnter(handleStepEnter)
+        .onContainerEnter(handleContainerEnter)
+        .onContainerExit(handleContainerExit);
+    /**/
 
     const topLegendVis = d3.select(".ic-sachin-century-legend-top").append("svg:svg")
         .attr("width", width)
@@ -671,9 +810,24 @@ class SachinCenturies extends Component {
   render() {
     return (
         <div className="ic-sachin-century">
-          <div className="ic-sachin-century-legend-top"/>
-          <div className="ic-sachin-century-legend-bottom"/>
-          <div className="ic-sachin-century-content"/>
+          <div id="sachinscroll">
+            <div className="scroll__graphic">
+              <div className="ic-sachin-century-legend-top"/>
+              <div className="ic-sachin-century-legend-bottom"/>
+              <div className="ic-sachin-century-content"/>
+            </div>
+            <div className="scroll__text">
+              <div className='step sachin' data-step='1'><p>Surprisingly, it took Sachin 5 years to make his first century.</p></div>
+              <div className='step sachin' data-step='2'><p>Later he kept on hitting 100's at will, almost.</p></div>
+              <div className='step sachin' data-step='3'><p>In the beginning of the 2004-05 season, Sachin got injured with the "Tennis Elbow".</p></div>
+              <div className='step sachin' data-step='4'><p>That followed by defeat for India in 4 matches where he had scored a century.</p></div>
+              <div className='step sachin' data-step='5'><p>Three of those matches were against Pakistan, the biggest rival of India in cricket.</p></div>
+              <div className='step sachin' data-step='6'><p>That fired the rumour about Sachin's centuries being unlucky for India.</p></div>
+              <div className='step sachin' data-step='7'><p>In 2010, Sachin became the first man on the planet to hit a ODI 200 (not out).</p></div>
+              <div className='step sachin' data-step='8'><p>Sachin also holds the record for most nervous ninty scores (27 times in all three formats).</p></div>
+              <div className='step ball' data-step='9'/>
+            </div>
+          </div>
         </div>
     );
   }
