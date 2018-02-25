@@ -193,6 +193,11 @@ d3-tip
   text-align: center;
 }
 
+.ic-comparison-triangle {
+  padding-top: 10px;
+  text-align: center;
+}
+
 .ic-ashes-banner {
   display: inline-block;
   max-width: 50%;
@@ -368,6 +373,19 @@ width: fit-content;
   padding: 4px;
 }
 
+.comparison-triangle-tooltip {
+  width: max-content;
+  margin: auto;
+  background-color: #FFFFFF;
+  border: 1px solid #dcd7d4;
+  box-shadow: 1px 1px 5px rgba(10,10,10,0.10);
+  text-align: center;
+  font-weight: 100;
+  visibility: hidden;
+  padding: 4px;
+  margin-bottom: 20px;
+}
+
 .multi-format-tooltip {
   position: absolute;
   background-color: #FFFFFF;
@@ -414,4 +432,33 @@ Content style
   width: max-content;
   margin: auto;
   margin-bottom: 20px;
+  margin-top: 50px;
+}
+
+/*Comparison Triangle*/
+line.ct-axis {
+  stroke-width: 2;
+  stroke: #363636;
+}
+line.ct-tick {
+  stroke-width: 1;
+  stroke: #c3c3c3;
+}
+
+line.ct-tick-a, text.ct-tick-a {
+  stroke: #c30000;
+}
+
+line.ct-tick-b, text.ct-tick-b {
+  stroke: #0000c3;
+}
+
+line.ct-tick-c, text.ct-tick-c {
+  stroke: #008000;
+}
+
+text.ct-tick-text {
+  font-family: "sans-serif";
+  font-size: 10px;
+  fill: #000000;
 }

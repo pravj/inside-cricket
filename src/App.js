@@ -10,6 +10,7 @@ import IndividualScoreWithTime from './componenets/IndividualScoreWithTime'
 import StrikeAndAverageODI from './componenets/StrikeAndAverageODI'
 import MultiFormatPerformance from './componenets/MultiFormatPerformance'
 import PlayerAge from './componenets/PlayerAge'
+import ComparisonTriangle from './componenets/ComparisonTriangle'
 //import d3 from './d3.v3.min'
 // import logo from './logo.svg';
 // <img src={logo} className="App-logo" alt="logo" />
@@ -114,6 +115,10 @@ class App extends Component {
           <p className="ic-author"><a href="https://twitter.com/hackpravj" target="_blank">Pravendra Singh</a></p>
         </header>
 
+        <div>
+          <ComparisonTriangle/>
+        </div>
+
         <p className="ic-intro">
           Even though it's fighting to get a global attention, Cricket is one of the most followed sports in the world. So there is a good chance that you've heard of <i>Sir Don Bradman</i> or <i>Sachin Tendulkar</i>.
         </p>
@@ -155,6 +160,8 @@ class App extends Component {
           As per the condition now, Cricket is fighting with <i>Soccer</i> and <i>Basketball</i> for a global spot. The ICC is working on the global expansion but they find themselves in a dilemma where the new T20 format is becoming a threat to the old Test match format.
         </p>
 
+        <div className="ic-section-title">"Multi format performance"</div>
+
         <div className="ic-section-title">"The Ashes: Cricket's Oldest Rivalry"</div>
 
         <p className="ic-intro">
@@ -165,7 +172,7 @@ class App extends Component {
         <p className="ic-quote">
           In Affectionate Remembrance of ENGLISH CRICKET, which died at the Oval on 29 August 1882, Deeply lamented by a large circle of sorrowing friends and acquaintances.
           <pre>R.I.P.</pre>
-          <pre>N.B. – The body will be cremated and the ashes taken to Australia.</pre>
+          <p>N.B. – The body will be cremated and the ashes taken to Australia.</p>
           <p className="ic-quote-author">Sporting Times, 1882</p>
         </p>
 
@@ -176,10 +183,6 @@ class App extends Component {
         <p className="ic-intro">
           The series is played every two year when a team visits another one to get back the ashes. The Ashes are regarded as being held by the team that most recently won the series. If the series is <i>drawn</i>, the team that currently holds the Ashes retains it.
         </p>
-
-        <div>
-          <Ashes/>
-        </div>
 
       </div>
     );
