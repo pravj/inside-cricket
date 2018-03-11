@@ -343,7 +343,7 @@ class RunChase extends Component {
 
           // add this score to be used later
           points[d.player] = d;
-        })
+        });
 
     // legend section: top (player names)
     const topLegendVis = d3.select(".ic-runchase-top-legend").append("svg:svg")

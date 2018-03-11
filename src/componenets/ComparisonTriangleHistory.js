@@ -4,23 +4,23 @@ import d3tip from 'd3-tip';
 
 // (Lost, Draw, Won)
 const matchData = {
-  "1900's": [
+  "1900": [
     {team: 'Australia', code: 'AUS', won: 16, lost: 9, draw: 8},
     {team: 'England', code: 'ENG', won: 11, lost: 18, draw: 9},
     {team: 'South Africa', code: 'SA', won: 4, lost: 4, draw: 3},
   ],
-  "1910's": [
+  "1910": [
     {team: 'Australia', code: 'AUS', won: 7, lost: 6, draw: 3},
     {team: 'England', code: 'ENG', won: 14, lost: 4, draw: 3},
     {team: 'South Africa', code: 'SA', won: 4, lost: 15, draw: 2},
   ],
-  "1920's": [
+  "1920": [
     {team: 'Australia', code: 'AUS', won: 14, lost: 6, draw: 8},
     {team: 'England', code: 'ENG', won: 18, lost: 16, draw: 14},
     {team: 'South Africa', code: 'SA', won: 3, lost: 10, draw: 10},
     {team: 'West Indies', code: 'WI', won: 0, lost: 3, draw: 0},
   ],
-  "1930's": [
+  "1930": [
     {team: 'Australia', code: 'AUS', won: 22, lost: 10, draw: 7},
     {team: 'England', code: 'ENG', won: 23, lost: 14, draw: 35},
     {team: 'South Africa', code: 'SA', won: 4, lost: 10, draw: 13},
@@ -28,7 +28,7 @@ const matchData = {
     {team: 'India', code: 'IND', won: 0, lost: 5, draw: 2},
     {team: 'New Zealand', code: 'NZ', won: 0, lost: 5, draw: 9},
   ],
-  "1940's": [
+  "1940": [
     {team: 'Australia', code: 'AUS', won: 14, lost: 0, draw: 4},
     {team: 'England', code: 'ENG', won: 6, lost: 9, draw: 17},
     {team: 'South Africa', code: 'SA', won: 0, lost: 7, draw: 5},
@@ -36,7 +36,7 @@ const matchData = {
     {team: 'India', code: 'IND', won: 0, lost: 6, draw: 7},
     {team: 'New Zealand', code: 'NZ', won: 0, lost: 1, draw: 5},
   ],
-  "1950's": [
+  "1950": [
     {team: 'Australia', code: 'AUS', won: 29, lost: 12, draw: 16},
     {team: 'England', code: 'ENG', won: 39, lost: 22, draw: 22},
     {team: 'South Africa', code: 'SA', won: 12, lost: 15, draw: 8},
@@ -45,7 +45,7 @@ const matchData = {
     {team: 'New Zealand', code: 'NZ', won: 1, lost: 21, draw: 10},
     {team: 'Pakistan', code: 'PAK', won: 8, lost: 9, draw: 12},
   ],
-  "1960's": [
+  "1960": [
     {team: 'Australia', code: 'AUS', won: 23, lost: 14, draw: 29},
     {team: 'England', code: 'ENG', won: 32, lost: 15, draw: 53},
     {team: 'South Africa', code: 'SA', won: 7, lost: 8, draw: 16},
@@ -54,7 +54,7 @@ const matchData = {
     {team: 'New Zealand', code: 'NZ', won: 6, lost: 18, draw: 19},
     {team: 'Pakistan', code: 'PAK', won: 2, lost: 8, draw: 20},
   ],
-  "1970's": [
+  "1970": [
     {team: 'Australia', code: 'AUS', won: 30, lost: 29, draw: 24},
     {team: 'England', code: 'ENG', won: 33, lost: 21, draw: 41},
     {team: 'South Africa', code: 'SA', won: 4, lost: 0, draw: 0},
@@ -63,7 +63,7 @@ const matchData = {
     {team: 'New Zealand', code: 'NZ', won: 3, lost: 19, draw: 19},
     {team: 'Pakistan', code: 'PAK', won: 9, lost: 11, draw: 26},
   ],
-  "1980's": [
+  "1980": [
     {team: 'Australia', code: 'AUS', won: 27, lost: 31, draw: 38},
     {team: 'England', code: 'ENG', won: 20, lost: 39, draw: 45},
     {team: 'Sri Lanka', code: 'SL', won: 2, lost: 16, draw: 11},
@@ -72,18 +72,18 @@ const matchData = {
     {team: 'New Zealand', code: 'NZ', won: 17, lost: 15, draw: 27},
     {team: 'Pakistan', code: 'PAK', won: 23, lost: 13, draw: 44},
   ],
-  "1990's": [
+  "1990": [
     {team: 'Australia', code: 'AUS', won: 54, lost: 25, draw: 29},
     {team: 'England', code: 'ENG', won: 26, lost: 43, draw: 38},
-    {team: 'Sri Lanka', code: 'SL', won: 14, lost: 22, draw: 31},
+    {team: 'Sri Lanka', code: 'SA', won: 14, lost: 22, draw: 31},
     {team: 'West Indies', code: 'WI', won: 30, lost: 28, draw: 23},
     {team: 'India', code: 'IND', won: 18, lost: 20, draw: 31},
     {team: 'New Zealand', code: 'NZ', won: 17, lost: 32, draw: 32},
     {team: 'Pakistan', code: 'PAK', won: 32, lost: 21, draw: 23},
     {team: 'South Africa', code: 'SA', won: 29, lost: 13, draw: 24},
-    {team: 'Zimbabwe', code: 'ZIM', won: 3, lost: 19, draw: 17},
+    {team: 'Zimbabwe', code: 'SA', won: 3, lost: 19, draw: 17},
   ],
-  "2000's": [
+  "2000": [
     {team: 'Australia', code: 'AUS', won: 79, lost: 18, draw: 18},
     {team: 'England', code: 'ENG', won: 55, lost: 37, draw: 37},
     {team: 'Sri Lanka', code: 'SL', won: 44, lost: 31, draw: 21},
@@ -95,7 +95,7 @@ const matchData = {
     {team: 'Zimbabwe', code: 'ZIM', won: 5, lost: 30, draw: 9},
     {team: 'Bangladesh', code: 'BAN', won: 3, lost: 52, draw: 6},
   ],
-  "2010's": [
+  "2010": [
     {team: 'Australia', code: 'AUS', won: 48, lost: 30, draw: 14},
     {team: 'England', code: 'ENG', won: 45, lost: 37, draw: 20},
     {team: 'Sri Lanka', code: 'SL', won: 25, lost: 31, draw: 21},
@@ -104,23 +104,52 @@ const matchData = {
     {team: 'New Zealand', code: 'NZ', won: 24, lost: 27, draw: 17},
     {team: 'Pakistan', code: 'PAK', won: 28, lost: 29, draw: 11},
     {team: 'South Africa', code: 'SA', won: 38, lost: 18, draw: 20},
-    {team: 'Zimbabwe', code: 'ZIM', won: 3, lost: 18, draw: 1},
+    {team: 'Zimbabwe', code: 'ZIMA', won: 3, lost: 18, draw: 1},
     {team: 'Bangladesh', code: 'BAN', won: 7, lost: 28, draw: 10},
   ],
 };
 
 let isSmallDevice = false;
+let intervalID = null;
 
-class ComparisonTriangle extends Component {
+class ComparisonTriangleHistory extends Component {
+  static getTeamHistoryDescription(team) {
+    switch (team) {
+      case "Select Team":
+        return "Select the team to see its test timeline";
+      case "India":
+        return "After joining the ICC in 1926, India was a weak team in the starting days.<br/>Relatively, most of their test matches had resulted in draws.<br/>But they have been moving towards more wins for the last 3 decades.<br/>India currently ranks #1 in ICC Test rankings.";
+      case "Australia":
+        return "Australians have been the real kings of the game for long time.<br/>Starting from Don Bradman to Steve Waugh and Ricky Ponting.<br/>1960's and 1980's was the most unsuccessful time for the team,<br/>after the loss of players like Dennis Lillee and Rod Marsh.";
+      case "Pakistan":
+        return "Pakistan started playing tests in 1952, and also won the 1992 world cup.<br/>1990's was the time when Pakistani fast bowlers were famous worldwide.<br/>The team seem to have lost momentum for the last 2 decades.";
+      case "Bangladesh":
+        return "Bangladesh started playing tests in the start of the century.<br/>With the slow progress, they are still considered a weak team in the game.";
+      case "Zimbabwe":
+        return "The tail-ending team have had a bad test career.<br/>They are supposedly shifting the focus towards T20s";
+      case "Sri Lanka":
+        return "2000's was the golden time for Sri Lankan test cricket,<br/>with the likes of Jayasuriya, Sangakkara and Muralitharan.";
+      case "New Zealand":
+        return "New Zealand have been playing the game for a long time.<br/>But they have never had more relative wins in a year.";
+      case "South Africa":
+        return "Being the founding member of ICC, South Africa was banned from cricket in 1970's<br/>At that time, they were arguably the best team in thw world.";
+      case "England":
+        return "Inventors of cricket, England have been on all the sides of the game.<br/>Being the champions in the early and middle of 19th century.<br/>They have also been on the lower side of the game in the 1980's and 1990's.";
+      case "West Indies":
+        return "The Windies were known for their attacking fast bowling.<br/>They were the ultimate dominating team in 1970-80.<br/>Team's performance has since fallen in test cricket.";
+      default:
+        return team;
+    }
+  }
+
   constructor(props) {
     super(props);
 
     this.state = {
-      timeRange: "1900's",
-      team: "West Indies",
+      team: "Select Team",
     };
 
-    this.onTimeChange = this.onTimeChange.bind(this);
+    this.onTeamChange = this.onTeamChange.bind(this);
 
     this.vis = null;
     this.coord = null;
@@ -153,7 +182,7 @@ class ComparisonTriangle extends Component {
     };
 
     // create an svg container
-    const vis = d3.select(".ic-comparison-triangle").append("svg:svg")
+    const vis = d3.select(".ic-comparison-triangle-history").append("svg:svg")
         .attr("width", width)
         .attr("height", height);
 
@@ -423,46 +452,32 @@ class ComparisonTriangle extends Component {
         .classed('ct-tick', true);
 
     // add hover tooltip
-    d3.select('.ic-comparison-triangle')
+    d3.select('.ic-comparison-triangle-history')
         .append('div')
-        .attr('class', 'comparison-triangle-tooltip');
+        .attr('class', 'comparison-triangle-history-tooltip');
 
     this.vis = vis;
     this.coord = coord;
 
-    this.renderCircles();
-  }
-
-  onTimeChange()  {
-    let sValue;
-
-    try {
-      sValue = document.querySelector(".ic-comparison-triangle-selection").value;
-    } catch (e) {
-      sValue = "1900's"
-    }
-
-    this.setState({
-      timeRange: sValue,
-    }, () => {
-      // (lost, draw, won)
-      try {
-        this.vis.selectAll("circle").remove()
-        this.vis.selectAll(".team-label").remove()
-      } catch(e) {
-        //
-      }
-
-      this.renderCircles(matchData[this.state.timeRange]);
-    });
+    // this.renderCircles();
   }
 
   renderCircles() {
+    // Show all circles at once
+    /*
     const processedMatchData = [];
-    const mData = matchData[this.state.timeRange];
+    const yearList = [];
 
-    for (let i = 0; i < mData.length; i++) {
-      processedMatchData.push(this.coord(mData[i].lost, mData[i].draw, mData[i].won));
+    for (let year in matchData) {
+      if (matchData.hasOwnProperty(year)) {
+        for (let i = 0; i < matchData[year].length; i++) {
+          if (matchData[year][i].team === this.state.team) {
+            yearList.push(year);
+
+            processedMatchData.push(this.coord(matchData[year][i].lost, matchData[year][i].draw, matchData[year][i].won));
+          }
+        }
+      }
     }
 
     const circles = this.vis.selectAll("circle")
@@ -470,14 +485,14 @@ class ComparisonTriangle extends Component {
 
     const visRef = this.vis;
 
-    const getColor = (category) => {
-      if (category === "won") {
-        return "green"
-      } else if (category === "lost") {
-        return "red"
-      } else if (category === "draw") {
-        return "#bb9a39"
-      }
+    const choose = () => {
+      const choices = [-1, 1];
+      const index = Math.floor(Math.random() * choices.length);
+      return choices[index];
+    };
+
+    const getColor = () => {
+
     };
 
     circles.enter().append("circle")
@@ -489,49 +504,180 @@ class ComparisonTriangle extends Component {
               .attr("y", d[1])
               .attr("dy", 5)
               .attr("font-size", isSmallDevice ? "8px" : "10px")
-              .text(mData[i].code);
+              .text(yearList[i]);
 
           return d[0];
         })
         .attr("cy", function (d) { return d[1]; })
-        .attr("fill", function (d) { return getColor(d[2]); })
-        .attr("fill-opacity", function (d) { return getColor(d[2]); })
+        .attr("fill", "orange")
         .attr("r", isSmallDevice ? 3 : 5)
         .on('mouseover', function (d, i) {
           // TODO: mention custom implementation of tooltip
-          d3.select('.comparison-triangle-tooltip')
+          d3.select('.comparison-triangle-history-tooltip')
               .style('visibility', 'visible')
-              .html("<b>" + mData[i].team + "</b> Won: " + mData[i].won + "<br>Lost: " + mData[i].lost + " Draw: " + mData[i].draw);
+              .html("");
         })
         .on('mouseout', function (d) {
-          d3.select('.comparison-triangle-tooltip').style('visibility', 'hidden');
+          d3.select('.comparison-triangle-history-tooltip').style('visibility', 'hidden');
         });
+    */
+
+    if (this.state.team !== 'Select Team') {
+      try {
+        clearInterval(intervalID);
+      } catch (e) {
+        //
+      }
+      intervalID = null;
+
+      const processedMatchData = [];
+      const yearList = [];
+
+      for (let year in matchData) {
+        if (matchData.hasOwnProperty(year)) {
+          for (let i = 0; i < matchData[year].length; i++) {
+            if (matchData[year][i].team === this.state.team) {
+              yearList.push(year + "'s");
+
+              processedMatchData.push(this.coord(matchData[year][i].lost, matchData[year][i].draw, matchData[year][i].won));
+            }
+          }
+        }
+      }
+
+      let idx = 0;
+      const circle = this.vis.append("circle")
+          .attr("class", "team-circle");
+
+      const visRef = this.vis;
+
+      const getColor = (category) => {
+        if (category === "won") {
+          return "green"
+        } else if (category === "lost") {
+          return "red"
+        } else if (category === "draw") {
+          return "#bb9a39"
+        }
+      };
+
+      intervalID = setInterval(() => {
+        circle
+            .transition()
+            .attr("fill", getColor(processedMatchData[idx][2]))
+            .attr("cx", processedMatchData[idx][0])
+            .attr("cy", processedMatchData[idx][1])
+            .attr("r", isSmallDevice ? 3 : 5);
+
+        if (idx !== 0) {
+          console.log(processedMatchData[idx]);
+          visRef.append("line")
+              .attr("class", "team-circle-trail")
+              .attr("stroke", getColor(processedMatchData[idx][2]))
+              .attr("stroke-width", "2")
+              .attr("stroke-opacity", "0.2")
+              .attr("x1", processedMatchData[idx - 1][0])
+              .attr("y1", processedMatchData[idx - 1][1])
+              .attr("x2", processedMatchData[idx][0])
+              .attr("y2", processedMatchData[idx][1]);
+        }
+
+        visRef.append("circle")
+            .attr("class", "team-circle-light")
+            .attr("fill-opacity", "0.6")
+            .attr("fill", getColor(processedMatchData[idx][2]))
+            .attr("cx", processedMatchData[idx][0])
+            .attr("cy", processedMatchData[idx][1])
+            .attr("r", isSmallDevice ? 1.5 : 3);
+
+        if (idx === 0  || idx === processedMatchData.length - 1) {
+          visRef.append("text")
+              .attr("class", "team-label")
+              .attr("x", processedMatchData[idx][0])
+              .attr("dx", 5)
+              .attr("y", processedMatchData[idx][1])
+              .attr("font-size", isSmallDevice ? "8px" : "10px")
+              .text(yearList[idx])
+        } else if (processedMatchData[idx][2] !== processedMatchData[idx - 1][2]) {
+          visRef.append("text")
+              .attr("class", "team-label")
+              .attr("x", processedMatchData[idx][0])
+              .attr("dx", 5)
+              .attr("y", processedMatchData[idx][1])
+              .attr("font-size", isSmallDevice ? "8px" : "10px")
+              .text(yearList[idx])
+        }
+
+        idx = (idx + 1) % (processedMatchData.length);
+        // stop after a loop
+        if (idx === 0) {
+          clearInterval(intervalID);
+          intervalID = null;
+        }
+      }, 1000);
+    }
+  }
+
+  onTeamChange() {
+    let sValue;
+
+    try {
+      sValue = document.querySelector(".ic-comparison-triangle-history-selection").value;
+    } catch (e) {
+      sValue = "Select Team"
+    }
+
+    this.setState({
+      team: sValue,
+    }, () => {
+      // (lost, draw, won)
+      try {
+        this.vis.selectAll(".team-circle").remove();
+        this.vis.selectAll(".team-circle-light").remove();
+        this.vis.selectAll(".team-circle-trail").remove();
+        this.vis.selectAll(".team-label").remove();
+      } catch(e) {
+        //
+      }
+
+      this.renderCircles();
+    });
   }
 
   render() {
     return (
         <div>
           <div style={{ textAlign: 'center', width: 'max-content', margin: 'auto', padding: '10px 10px 0px 8px' }}>
-            <b>Compare Test Playing Teams in</b> &nbsp;
-            <select className="ic-comparison-triangle-selection" onChange={this.onTimeChange}>
-              <option>1900's</option>
-              <option>1910's</option>
-              <option>1920's</option>
-              <option>1930's</option>
-              <option>1940's</option>
-              <option>1950's</option>
-              <option>1960's</option>
-              <option>1970's</option>
-              <option>1980's</option>
-              <option>1990's</option>
-              <option>2000's</option>
-              <option>2010's</option>
+            <b>Historical Timeline </b> &nbsp;
+            <select className="ic-comparison-triangle-history-selection" onChange={this.onTeamChange}>
+              <option>Select Team</option>
+              <option>West Indies</option>
+              <option>Australia</option>
+              <option>India</option>
+              <option>England</option>
+              <option>Pakistan</option>
+              <option>South Africa</option>
+              <option>Sri Lanka</option>
+              <option>Bangladesh</option>
+              <option>New Zealand</option>
+              <option>Zimbabwe</option>
             </select>
           </div>
-          <div className="ic-comparison-triangle"/>
+          <div
+              style={{
+                textAlign: 'center',
+                border: '1px solid lightgrey',
+                width: isSmallDevice ? '80%' : '40%',
+                margin: 'auto',
+                padding: '10px 10px 10px 8px',
+                fontSize: isSmallDevice ? '10px' : '15px',
+              }}
+              dangerouslySetInnerHTML={{ __html: ComparisonTriangleHistory.getTeamHistoryDescription(this.state.team) }}>
+          </div>
+          <div className="ic-comparison-triangle-history"/>
         </div>
     );
   }
 }
 
-export default ComparisonTriangle;
+export default ComparisonTriangleHistory;

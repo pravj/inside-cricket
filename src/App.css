@@ -198,6 +198,11 @@ d3-tip
   text-align: center;
 }
 
+.ic-comparison-triangle-history {
+  padding-top: 10px;
+  text-align: center;
+}
+
 .ic-ashes-banner {
   display: inline-block;
   max-width: 50%;
@@ -386,6 +391,19 @@ width: fit-content;
   margin-bottom: 20px;
 }
 
+.comparison-triangle-history-tooltip {
+  width: max-content;
+  margin: auto;
+  background-color: #FFFFFF;
+  border: 1px solid #dcd7d4;
+  box-shadow: 1px 1px 5px rgba(10,10,10,0.10);
+  text-align: center;
+  font-weight: 100;
+  visibility: hidden;
+  padding: 4px;
+  margin-bottom: 20px;
+}
+
 .multi-format-tooltip {
   position: absolute;
   background-color: #FFFFFF;
@@ -426,13 +444,11 @@ Content style
 }
 
 .ic-section-title {
-  text-align: center;
-  font-weight: bold;
-  border-bottom: 1px solid;
+  font-weight: bolder;
   width: max-content;
-  margin: auto;
-  margin-bottom: 20px;
-  margin-top: 50px;
+  margin-left: 15%;
+  font-size: 1.2em;
+  margin-bottom: 10px;
 }
 
 /*Comparison Triangle*/
