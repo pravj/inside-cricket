@@ -117,7 +117,9 @@ class PlayerAge extends Component {
         .attr("width", isSmallDevice ? 10 : 25)
         .attr("height", function(d) { return (yScale(0) - yScale(d.count)); })
         .attr("fill", "#ff0000")
-        .attr("fill-opacity", "0.2")
+        .attr("fill-opacity", function (d) {
+          return d.age >= 28 ? "0.5" : "0.2"
+        })
         .on('mouseover', tip.show)
         .on('mouseout', tip.hide);
 

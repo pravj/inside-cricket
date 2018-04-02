@@ -612,7 +612,9 @@ class SachinCenturies extends Component {
           vis.append('circle')
               .attr('cx', xScale(new Date(data[idx].date)))
               .attr('cy', yScale(data[idx].run))
-              .attr('r', (data[idx].run === 0 ? 0 : (data[idx].run < 100 ? 2 * radiusFactor : 5 * radiusFactor)))
+              .attr('r', function () {
+                return (data[idx].run === 0 ? 0 : (data[idx].run < 100 ? 2 * radiusFactor : 5 * radiusFactor));
+              })
               .attr("fill", function () {
                 if((data[idx].run >= 90 && data[idx].run < 100) || (data[idx].won === undefined)) {
                   return "#090909";
@@ -625,6 +627,29 @@ class SachinCenturies extends Component {
         }
       }
     };
+
+    const highLightCircleInRange = (list) => {
+      for (let i = 0; i < list.length; i++) {
+        // only if it was a 100+ score
+        if (data[list[i]].run >= 100) {
+          vis.append('circle')
+              .attr('cx', xScale(new Date(data[list[i]].date)))
+              .attr('cy', yScale(data[list[i]].run))
+              .attr('r', function () {
+                return 10 * radiusFactor;
+              })
+              .attr("fill", function () {
+                if((data[list[i]].run >= 90 && data[list[i]].run < 100) || (data[list[i]].won === undefined)) {
+                  return "#090909";
+                } else if (data[list[i]].won) {
+                  return "#138e39";
+                } else {
+                  return "#ff0000";
+                }
+              });
+        }
+      }
+    }
 
     // create the tennis elbow injury zone
     const createTennisElbowInjuryZone = () => {
@@ -702,8 +727,11 @@ class SachinCenturies extends Component {
         createTennisElbowInjuryZone();
       } else if (response.index === 3) {
         createHundredCircleInRange(45, 50);
+      } else if (response.index === 4) {
+        highLightCircleInRange([45, 46, 47, 48]);
       } else if (response.index === 6) {
         createHundredCircleInRange(51, 67);
+        highLightCircleInRange([63]);
       } else if (response.index === 7) {
         createNervousNintyPoints()
       }
@@ -725,8 +753,8 @@ class SachinCenturies extends Component {
 
       // old school
       // un-sticky the graphic, and pin to top/bottom of container
-      graphic.classed('is-fixed', false);
-      graphic.classed('is-bottom', response.direction === 'down');
+      // graphic.classed('is-fixed', false);
+      // graphic.classed('is-bottom', response.direction === 'down');
 
       // remove is-active from step elements
       step.classed('is-active', false);
@@ -825,7 +853,7 @@ class SachinCenturies extends Component {
               <div className='step sachin' data-step='6'><p>That fired the rumour about Sachin's centuries being unlucky for India.</p></div>
               <div className='step sachin' data-step='7'><p>In 2010, Sachin became the first man on the planet to hit a ODI 200 (not out).</p></div>
               <div className='step sachin' data-step='8'><p>Sachin also holds the record for most nervous ninty scores (27 times in all three formats).</p></div>
-              <div className='step ball' data-step='9'/>
+              <div className='step sachin' data-step='9' style={{ marginBottom: '0px' }}/>
             </div>
           </div>
         </div>

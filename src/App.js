@@ -121,7 +121,7 @@ class App extends Component {
         </p>
 
         <p className="ic-intro">
-          Cricket is not only a sport but a religion in India. We even have our own god, <i>Sachin Tendulkar</i>. I can vouch for my neighboring countries also that they have a similar situation because I have seen their love for the game.
+          Cricket is not only a sport but a religion in India. I can vouch for my neighboring countries also that they have a similar situation because I have seen their love for the game.
         </p>
 
         <p className="ic-intro">
@@ -190,7 +190,7 @@ class App extends Component {
         </div>
 
         <p className="ic-intro">
-          Similarly, you can select a team and check out their journey so far. Why don't you start with your favorite team?
+          Similarly, you can select a team and check out their journey so far. In the triangle below, you can see the timeline for Indian Test team. Why don't you start with your favorite team?
         </p>
 
         <div>
@@ -198,6 +198,10 @@ class App extends Component {
         </div>
 
         <div className="ic-section-title"># Multi format performance</div>
+
+        <p className="ic-intro">
+          As you have seen, different teams had their own "ruling time" in the last century of Cricket. Teams like India (Current Test Champions) and New Zealand are moving up the ladder after being in the bottom of the list.
+        </p>
 
         <div>
           <MultiFormatPerformance/>
@@ -227,6 +231,34 @@ class App extends Component {
 
         <div>
           <Ashes/>
+        </div>
+
+        <div className="ic-section-title"># Sachin: Man with a 100 100's</div>
+
+        <p className="ic-intro">
+          As said earlier, Cricket is not only a sport but a religion in India. We even have our own god, <i>Sachin Tendulkar</i>.
+        </p>
+
+        <p className="ic-intro">
+          He holds numerous records in the game, the most celebrated of them all, <i>he had scored 100 hundreds in both the formats combined</i>. Ricky Ponting comes 2nd in the list with 71 centuries, notice the difference here, that's Sachin Tendulkar for you.
+        </p>
+
+        <p className="ic-intro">
+          The distribution below explore all the ODI centuries by him, keep scrolling if you're interested in myth busting.
+        </p>
+
+        <div>
+          <SachinCenturies/>
+        </div>
+
+        <div className="ic-section-title"># Age: just a number</div>
+
+        <p className="ic-intro">
+          Ever wondered what's the ideal age to start playing Cricket so that you can be successful one day?
+        </p>
+
+        <div>
+          <PlayerAge/>
         </div>
 
       </div>

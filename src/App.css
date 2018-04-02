@@ -444,6 +444,7 @@ Content style
 }
 
 .ic-section-title {
+  font-family: Arial;
   font-weight: bolder;
   width: max-content;
   margin-left: 15%;

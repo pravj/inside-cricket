@@ -459,10 +459,10 @@ class ComparisonTriangleHistory extends Component {
     this.vis = vis;
     this.coord = coord;
 
-    // this.renderCircles();
+    this.renderCircles('India');
   }
 
-  renderCircles() {
+  renderCircles(t) {
     // Show all circles at once
     /*
     const processedMatchData = [];
@@ -522,7 +522,7 @@ class ComparisonTriangleHistory extends Component {
         });
     */
 
-    if (this.state.team !== 'Select Team') {
+    if (t !== 'Select Team') {
       try {
         clearInterval(intervalID);
       } catch (e) {
@@ -536,7 +536,7 @@ class ComparisonTriangleHistory extends Component {
       for (let year in matchData) {
         if (matchData.hasOwnProperty(year)) {
           for (let i = 0; i < matchData[year].length; i++) {
-            if (matchData[year][i].team === this.state.team) {
+            if (matchData[year][i].team === t) {
               yearList.push(year + "'s");
 
               processedMatchData.push(this.coord(matchData[year][i].lost, matchData[year][i].draw, matchData[year][i].won));
@@ -640,7 +640,7 @@ class ComparisonTriangleHistory extends Component {
         //
       }
 
-      this.renderCircles();
+      this.renderCircles(sValue === 'Select Team' ? 'India' : sValue);
     });
   }
 
