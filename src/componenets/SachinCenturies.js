@@ -491,6 +491,9 @@ const centuries = {
   ]
 }
 
+let isComplete = false;
+let maxIndex = -1;
+
 class SachinCenturies extends Component {
   componentDidMount() {
     const padding = {};
@@ -718,22 +721,30 @@ class SachinCenturies extends Component {
       // update graphic based on step
       graphic.select('p').text(response.index + 1);
 
-      if (response.index === 0) {
+      if (response.index === 0 && !isComplete && response.index > maxIndex) {
         // add the circle for the first hundred
         createHundredCircleInRange(1, 1);
-      } else if (response.index === 1) {
+        maxIndex = 0;
+      } else if (response.index === 1 && !isComplete && response.index > maxIndex) {
         createHundredCircleInRange(2, 44);
-      } else if (response.index === 2) {
+        maxIndex = 1;
+      } else if (response.index === 2 && !isComplete && response.index > maxIndex) {
         createTennisElbowInjuryZone();
-      } else if (response.index === 3) {
+        maxIndex = 2;
+      } else if (response.index === 3 && !isComplete && response.index > maxIndex) {
         createHundredCircleInRange(45, 50);
-      } else if (response.index === 4) {
+        maxIndex = 3;
+      } else if (response.index === 4 && !isComplete && response.index > maxIndex) {
         highLightCircleInRange([45, 46, 47, 48]);
-      } else if (response.index === 6) {
+        maxIndex = 4;
+      } else if (response.index === 6 && !isComplete && response.index > maxIndex) {
         createHundredCircleInRange(51, 67);
         highLightCircleInRange([63]);
-      } else if (response.index === 7) {
-        createNervousNintyPoints()
+        maxIndex = 6;
+      } else if (response.index === 7 && !isComplete && response.index > maxIndex) {
+        isComplete = true;
+        createNervousNintyPoints();
+        maxIndex = 7;
       }
     };
 
