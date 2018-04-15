@@ -116,9 +116,9 @@ class PlayerAge extends Component {
         .attr("y", function(d) { return yScale(d.count); })
         .attr("width", isSmallDevice ? 10 : 25)
         .attr("height", function(d) { return (yScale(0) - yScale(d.count)); })
-        .attr("fill", "#ff0000")
+        .attr("fill", "#6B7FD7")
         .attr("fill-opacity", function (d) {
-          return d.age >= 28 ? "0.5" : "0.2"
+          return d.age >= 28 ? "0.9" : "0.3"
         })
         .on('mouseover', tip.show)
         .on('mouseout', tip.hide);
@@ -165,29 +165,66 @@ class PlayerAge extends Component {
         .style('text-anchor', 'middle')
         .attr("font-size", isSmallDevice ? '12px' : '15px')
         .text('"Late debuts in cricket" (age in years)');
+
+    // create an svg container for late comers table
+    const earlyComersVis = d3.select(".ic-early-comers").append("svg:svg")
+        .attr("width", width)
+        .attr("height", 40);
+
+    earlyComersVis.append("text")
+        .attr("x", "50%")
+        .attr("y", "50%")
+        .style('text-anchor', 'middle')
+        .attr("font-size", isSmallDevice ? '12px' : '15px')
+        .text('"Early debuts in cricket" (age in years)');
   }
 
   render() {
     const lateComerplayers = [
-      {name: 'Clarrie Grimmett', team: 'AUS', age: '33'},
-      {name: 'Imran Tahir', team: 'SA', age: '31'},
-      {name: 'Saeed Ajmal', team: 'PAK', age: '30'},
-      {name: 'Michael Hussey', team: 'AUS', age: '28'},
-      {name: 'Jonathan Trott', team: 'ENG', age: '28'},
+      {name: 'Clarrie Grimmett', team: 'AUS', age: '33', url: ''},
+      {name: 'Imran Tahir', team: 'SA', age: '31', url: ''},
+      {name: 'Saeed Ajmal', team: 'PAK', age: '30', url: ''},
+      {name: 'Michael Hussey', team: 'AUS', age: '28', url: ''},
+      {name: 'Jonathan Trott', team: 'ENG', age: '28', url: ''},
     ];
 
-    const playerList = lateComerplayers.map((player, index) => (
-        <div key={index} className="ic-table-container-item"><img style={{ paddingRight: '20px', position: 'relative', top: '2px' }} src={PlayerAge.flagURL(player.team)}/>({player.age}) {player.name}</div>
+    const earlyComerplayers = [
+      {name: 'Aaqib Javed', team: 'PAK', age: '16', url: ''},
+      {name: 'SR Tendulkar', team: 'IND', age: '16', url: ''},
+      {name: 'Shahid Afridi', team: 'PAK', age: '16', url: ''},
+      {name: 'Mohammad Ashraful', team: 'BAN', age: '16', url: ''},
+      {name: 'Abdul Razzaq', team: 'PAK', age: '16', url: ''},
+    ];
+
+    const latePlayerList = lateComerplayers.map((player, index) => (
+        <div key={index} className="ic-table-container-item"><img style={{ paddingRight: '20px', position: 'relative', top: '2px' }} src={PlayerAge.flagURL(player.team)}/>({player.age}) <a target="_blank" href={'https://www.google.com/search?q=Cricketer ' + player.name}>{player.name}</a></div>
+    ));
+
+    const earlyPlayerList = earlyComerplayers.map((player, index) => (
+        <div key={index} className="ic-table-container-item"><img style={{ paddingRight: '20px', position: 'relative', top: '2px' }} src={PlayerAge.flagURL(player.team)}/>({player.age}) <a target="_blank" href={'https://www.google.com/search?q=Cricketer ' + player.name}>{player.name}</a></div>
     ));
 
     return (
         <div>
           <div className="ic-player-age-title" />
           <div className="ic-player-age" />
+          <p className="ic-intro">
+            The distribution suggests that the majority of players start their international career in the age of 20, but there have been a few famous players who started playing late.
+          </p>
           <div className="ic-late-comers" />
           <div className="ic-table-container">
-            {playerList}
+            {latePlayerList}
           </div>
+          <p className="ic-intro">
+            You can see Michael Hussey in the list here, who started late but ended up being the core of Australian batting lineup.
+          </p>
+          <div className="ic-early-comers" />
+          <div className="ic-table-container">
+            {earlyPlayerList}
+          </div>
+          <p className="ic-intro">
+            On the other hand, Sachin and Afridi started their career way early. No wonder Sachin was able to play for 24 long years and score all those runs.
+          </p>
         </div>
     );
   }

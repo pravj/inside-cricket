@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import * as d3 from 'd3';
-import d3tip from 'd3-tip';
 
 // (Lost, Draw, Won)
 const matchData = {
@@ -96,14 +95,14 @@ const matchData = {
     {team: 'Bangladesh', code: 'BAN', won: 3, lost: 52, draw: 6},
   ],
   "2010's": [
-    {team: 'Australia', code: 'AUS', won: 48, lost: 30, draw: 14},
-    {team: 'England', code: 'ENG', won: 45, lost: 37, draw: 20},
+    {team: 'Australia', code: 'AUS', won: 48, lost: 33, draw: 14},
+    {team: 'England', code: 'ENG', won: 45, lost: 38, draw: 21},
     {team: 'Sri Lanka', code: 'SL', won: 25, lost: 31, draw: 21},
     {team: 'West Indies', code: 'WI', won: 16, lost: 35, draw: 17},
     {team: 'India', code: 'IND', won: 43, lost: 24, draw: 21},
-    {team: 'New Zealand', code: 'NZ', won: 24, lost: 27, draw: 17},
+    {team: 'New Zealand', code: 'NZ', won: 25, lost: 27, draw: 18},
     {team: 'Pakistan', code: 'PAK', won: 28, lost: 29, draw: 11},
-    {team: 'South Africa', code: 'SA', won: 38, lost: 18, draw: 20},
+    {team: 'South Africa', code: 'SA', won: 41, lost: 18, draw: 20},
     {team: 'Zimbabwe', code: 'ZIM', won: 3, lost: 18, draw: 1},
     {team: 'Bangladesh', code: 'BAN', won: 7, lost: 28, draw: 10},
   ],
@@ -423,7 +422,7 @@ class ComparisonTriangle extends Component {
         .classed('ct-tick', true);
 
     // add hover tooltip
-    d3.select('.ic-comparison-triangle')
+    d3.select('.ic-comparison-triangle-label')
         .append('div')
         .attr('class', 'comparison-triangle-tooltip');
 
@@ -480,6 +479,10 @@ class ComparisonTriangle extends Component {
       }
     };
 
+    d3.select('.comparison-triangle-tooltip')
+        .style('visibility', 'visible')
+        .html((isSmallDevice ? "Tap" : "Hover") + " on a circle to see team performance");
+
     circles.enter().append("circle")
         .attr("cx", function (d, i) {
           visRef.append("text")
@@ -501,10 +504,10 @@ class ComparisonTriangle extends Component {
           // TODO: mention custom implementation of tooltip
           d3.select('.comparison-triangle-tooltip')
               .style('visibility', 'visible')
-              .html("<b>" + mData[i].team + "</b> Won: " + mData[i].won + "<br>Lost: " + mData[i].lost + " Draw: " + mData[i].draw);
+              .html("<b style='font-size:18px;'>" + mData[i].team + " (" + "1992" + ") </b>" + "| <span style='color:green'>Won:</span> " + mData[i].won + " <span style='color:red'>Lost:</span> " + mData[i].lost + " <span style='color:#bb9a39'>Draw:</span> " + mData[i].draw);
         })
         .on('mouseout', function (d) {
-          d3.select('.comparison-triangle-tooltip').style('visibility', 'hidden');
+          // d3.select('.comparison-triangle-tooltip').style('visibility', 'hidden');
         });
   }
 
@@ -528,6 +531,7 @@ class ComparisonTriangle extends Component {
               <option>2010's</option>
             </select>
           </div>
+          <div className="ic-comparison-triangle-label"/>
           <div className="ic-comparison-triangle"/>
         </div>
     );

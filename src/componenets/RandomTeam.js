@@ -37,7 +37,9 @@ const topOrderPlayers = [
   {name: 'Ross Taylor', team: 'NZ'},
   {name: 'David Warner', team: 'AUS'},
   {name: 'Jos Buttler', team: 'ENG'},
-  {name: 'Mitchell Marsh', team: 'AUS'}
+  {name: 'Mitchell Marsh', team: 'AUS'},
+  {name: 'Babar Azam', team: 'PAK'},
+  {name: 'Rohit Sharma', team: 'IND'},
 ]
 
 const lowerOrderPlayers = [
@@ -76,7 +78,12 @@ const lowerOrderPlayers = [
   {name: 'Kagiso Rabada', team: 'SA'},
   {name: 'Sunil Narine', team: 'WI'},
   {name: 'Trent Boult', team: 'NZ'},
-]
+  {name: 'Ben Stokes', team: 'ENG'},
+  {name: 'Hasan Ali', team: 'PAK'},
+  {name: 'Rashid Khan', team: 'AFG'},
+  {name: 'Jasprit Bumrah', team: 'IND'},
+];
+
 
 class RandomTeamTable extends Component {
   // Randomize array element order in-place
@@ -111,19 +118,57 @@ class RandomTeamTable extends Component {
         return 'https://upload.wikimedia.org/wikipedia/en/thumb/b/be/Flag_of_England.svg/23px-Flag_of_England.svg.png'
       case 'BAN':
         return 'https://upload.wikimedia.org/wikipedia/commons/thumb/f/f9/Flag_of_Bangladesh.svg/23px-Flag_of_Bangladesh.svg.png'
+      case 'AFG':
+        return 'https://upload.wikimedia.org/wikipedia/commons/thumb/9/9a/Flag_of_Afghanistan.svg/23px-Flag_of_Afghanistan.svg.png'
       default:
         return 'https://upload.wikimedia.org/wikipedia/en/thumb/b/b9/Flag_of_Australia.svg/23px-Flag_of_Australia.png'
     }
   }
 
   constructor(props) {
-    super(props)
+    super(props);
 
     this.state = {
       players: [],
-    }
+      playerListText: "",
+    };
 
     this.buttonClick = this.buttonClick.bind(this)
+  }
+
+  componentDidMount() {
+    this.buttonClick()
+  }
+
+  componentWillUpdate() {
+    try {
+      const thingToRemove = document.querySelectorAll("#tweet-content iframe")[0];
+      thingToRemove.parentNode.removeChild(thingToRemove);
+      console.log('removing button')
+    } catch (e) {
+      console.log('unable to remove button')
+    }
+  }
+
+  componentDidUpdate() {
+    const container = document.getElementById("tweet-content");
+    const anchor = document.createElement('a');
+    anchor.className += " twitter-share-button";
+    anchor.setAttribute('href',"https://twitter.com/share");
+    anchor.setAttribute('data-size',"large");
+    anchor.setAttribute('data-text', this.state.playerListText);
+    anchor.setAttribute('data-via',"hackpravj");
+    anchor.setAttribute('data-hashtags',"DreamXI,InsideCricket");
+    anchor.setAttribute('data-url',"https://hackpravj.com/blog/inside-cricket");
+    anchor.innerHTML = "Tweet";
+
+    container.appendChild(anchor);
+
+    try {
+      window.twttr.widgets.load();
+    } catch (e) {
+      //
+    }
   }
 
   buttonClick() {
@@ -146,21 +191,21 @@ class RandomTeamTable extends Component {
       {name: 'Mahela Jayawardene', team: 'SL'},
     ]
 
-    let players = []
-    let cap = captainPlayers[Math.floor(Math.random()*captainPlayers.length)]
-    let wk = wicketKeeperPlayersODI[Math.floor(Math.random()*wicketKeeperPlayersODI.length)]
+    let players = [];
+    let cap = captainPlayers[Math.floor(Math.random()*captainPlayers.length)];
+    let wk = wicketKeeperPlayersODI[Math.floor(Math.random()*wicketKeeperPlayersODI.length)];
 
     // MS Dhoni: The real MVP
     if (cap.name === wk.name) {
-      cap.tag = '(c/wk)'
-      players.push(cap)
+      cap.tag = '(c/wk)';
+      players.push(cap);
     } else {
       // add captain
-      cap.tag = '(c)'
-      players.push(cap)
+      cap.tag = '(c)';
+      players.push(cap);
       // add wicket keeper
-      wk.tag = '(wk)'
-      players.push(wk)
+      wk.tag = '(wk)';
+      players.push(wk);
     }
 
     // add top order players
@@ -176,10 +221,16 @@ class RandomTeamTable extends Component {
       players.push(lowerOrderPlayers[i])
     }
 
+    let playerListText = "My Dream XI Cricket team \n\n";
+    players.forEach((player) => {
+      playerListText += (player.name + " " + (player.tag ? player.tag : '') + "\n");
+    });
+
     // update the player list
     this.setState({
       players: players,
-    })
+      playerListText: playerListText,
+    });
   }
 
   render() {
@@ -190,7 +241,11 @@ class RandomTeamTable extends Component {
     return (
         <div className="ic-table-button">
           <button className="button-primary" onClick={this.buttonClick}>Generate Team</button>
-          <div className="ic-table-container">{playerList}</div>
+          <div className="ic-table-container" style={{ marginBottom: '20px' }}>{playerList}</div>
+          <p className="ic-intro" style={{ textAlign: 'center' }}>
+            Feel free to tweet your dream cricket team once you've settled.
+          </p>
+          <div id="tweet-content" />
         </div>
     );
   }

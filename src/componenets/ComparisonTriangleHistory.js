@@ -96,15 +96,15 @@ const matchData = {
     {team: 'Bangladesh', code: 'BAN', won: 3, lost: 52, draw: 6},
   ],
   "2010": [
-    {team: 'Australia', code: 'AUS', won: 48, lost: 30, draw: 14},
-    {team: 'England', code: 'ENG', won: 45, lost: 37, draw: 20},
+    {team: 'Australia', code: 'AUS', won: 48, lost: 33, draw: 14},
+    {team: 'England', code: 'ENG', won: 45, lost: 38, draw: 21},
     {team: 'Sri Lanka', code: 'SL', won: 25, lost: 31, draw: 21},
     {team: 'West Indies', code: 'WI', won: 16, lost: 35, draw: 17},
     {team: 'India', code: 'IND', won: 43, lost: 24, draw: 21},
-    {team: 'New Zealand', code: 'NZ', won: 24, lost: 27, draw: 17},
+    {team: 'New Zealand', code: 'NZ', won: 25, lost: 27, draw: 18},
     {team: 'Pakistan', code: 'PAK', won: 28, lost: 29, draw: 11},
-    {team: 'South Africa', code: 'SA', won: 38, lost: 18, draw: 20},
-    {team: 'Zimbabwe', code: 'ZIMA', won: 3, lost: 18, draw: 1},
+    {team: 'South Africa', code: 'SA', won: 41, lost: 18, draw: 20},
+    {team: 'Zimbabwe', code: 'ZIM', won: 3, lost: 18, draw: 1},
     {team: 'Bangladesh', code: 'BAN', won: 7, lost: 28, draw: 10},
   ],
 };
@@ -647,6 +647,17 @@ class ComparisonTriangleHistory extends Component {
   render() {
     return (
         <div>
+          <div
+              style={{
+                textAlign: 'center',
+                border: '1px solid lightgrey',
+                width: isSmallDevice ? '80%' : '40%',
+                margin: 'auto',
+                padding: '10px 10px 10px 8px',
+                fontSize: isSmallDevice ? '10px' : '15px',
+              }}
+              dangerouslySetInnerHTML={{ __html: ComparisonTriangleHistory.getTeamHistoryDescription(this.state.team) }}>
+          </div>
           <div style={{ textAlign: 'center', width: 'max-content', margin: 'auto', padding: '10px 10px 0px 8px' }}>
             <b>Historical Timeline </b> &nbsp;
             <select className="ic-comparison-triangle-history-selection" onChange={this.onTeamChange}>
@@ -662,17 +673,6 @@ class ComparisonTriangleHistory extends Component {
               <option>New Zealand</option>
               <option>Zimbabwe</option>
             </select>
-          </div>
-          <div
-              style={{
-                textAlign: 'center',
-                border: '1px solid lightgrey',
-                width: isSmallDevice ? '80%' : '40%',
-                margin: 'auto',
-                padding: '10px 10px 10px 8px',
-                fontSize: isSmallDevice ? '10px' : '15px',
-              }}
-              dangerouslySetInnerHTML={{ __html: ComparisonTriangleHistory.getTeamHistoryDescription(this.state.team) }}>
           </div>
           <div className="ic-comparison-triangle-history"/>
         </div>

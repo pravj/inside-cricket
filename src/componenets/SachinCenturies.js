@@ -557,6 +557,7 @@ class SachinCenturies extends Component {
         .attr("transform", "translate("+ innerPadding.left +",0)")
         .call(yAxis);
 
+    /*
     const tip = d3tip().attr('class', 'd3-tip').offset([-10, 0]).html(function(d) {
       return "" + d.run + (d.notout ? "*" : "") + " runs vs " + d.opponent;
     });
@@ -566,6 +567,7 @@ class SachinCenturies extends Component {
     });
 
     vis.call(tip);
+    */
 
     // small circle radius on smaller screen sizes
     const radiusFactor = (isSmallDevice ? 0.5 : 1);
@@ -607,11 +609,45 @@ class SachinCenturies extends Component {
 
     /**/
 
+    const createTimeGapLine = () => {
+      vis.append('line')
+          .attr('x1', xScale(new Date(data[0].date)))
+          .attr('y1', yScale(data[1].run))
+          .attr('x2', xScale(new Date(data[1].date)))
+          .attr('y2', yScale(data[1].run))
+          .style("stroke-dasharray", ("2, 2"))
+          .attr('stroke', 'black');
+
+      vis.append('text')
+          .attr('x', xScale(new Date(data[0].date)))
+          .attr('dx', 10)
+          .attr('y', yScale(data[1].run))
+          .attr('dy', -10)
+          .attr('font-size', isSmallDevice ? '6px' : '12px')
+          .text('⟵ 5 Years ⟶');
+    };
+
+    const tips = [];
     // create the hundred circle for given innings
     const createHundredCircleInRange = (i, j) => {
       for (let idx = i; idx <= j; idx++) {
         // only if it was a 100+ score
         if (data[idx].run >= 100) {
+          const tipIndex = tips.length;
+          tips[tipIndex] = d3tip().attr('class', 'd3-tip-box').html(function() {
+            return "" + data[idx].run + (data[idx].notout ? "*" : "") + " runs vs " + data[idx].opponent;
+          });
+
+          tips[tipIndex].direction(function(d) {
+            return 'n';
+          });
+
+          tips[tipIndex].offset(function() {
+            return [this.getBBox().height / 2, 0]
+          });
+
+          vis.call(tips[tipIndex]);
+
           vis.append('circle')
               .attr('cx', xScale(new Date(data[idx].date)))
               .attr('cy', yScale(data[idx].run))
@@ -626,7 +662,9 @@ class SachinCenturies extends Component {
                 } else {
                   return "#ff0000";
                 }
-              });
+              })
+              .on('mouseover', tips[tipIndex].show)
+              .on('mouseout', tips[tipIndex].hide);
         }
       }
     };
@@ -652,7 +690,7 @@ class SachinCenturies extends Component {
               });
         }
       }
-    }
+    };
 
     // create the tennis elbow injury zone
     const createTennisElbowInjuryZone = () => {
@@ -661,7 +699,7 @@ class SachinCenturies extends Component {
           .attr("y", yScale(230))
           .attr("width", xScale(new Date("01/01/2007")) - xScale(new Date("01/01/2004")))
           .attr("height", Math.abs(yScale(100) - yScale(230)))
-          .attr("fill", "#ad3237")
+          .attr("fill", "#E09F7D")
           .attr("fill-opacity", "0.2");
     };
 
@@ -722,29 +760,31 @@ class SachinCenturies extends Component {
       graphic.select('p').text(response.index + 1);
 
       if (response.index === 0 && !isComplete && response.index > maxIndex) {
+        // add the line showing time gap
+        createTimeGapLine();
         // add the circle for the first hundred
         createHundredCircleInRange(1, 1);
         maxIndex = 0;
       } else if (response.index === 1 && !isComplete && response.index > maxIndex) {
         createHundredCircleInRange(2, 44);
         maxIndex = 1;
-      } else if (response.index === 2 && !isComplete && response.index > maxIndex) {
-        createTennisElbowInjuryZone();
-        maxIndex = 2;
       } else if (response.index === 3 && !isComplete && response.index > maxIndex) {
-        createHundredCircleInRange(45, 50);
+        createTennisElbowInjuryZone();
         maxIndex = 3;
       } else if (response.index === 4 && !isComplete && response.index > maxIndex) {
-        highLightCircleInRange([45, 46, 47, 48]);
+        createHundredCircleInRange(45, 50);
         maxIndex = 4;
-      } else if (response.index === 6 && !isComplete && response.index > maxIndex) {
+      } else if (response.index === 5 && !isComplete && response.index > maxIndex) {
+        highLightCircleInRange([45, 46, 47, 48]);
+        maxIndex = 5;
+      } else if (response.index === 7 && !isComplete && response.index > maxIndex) {
         createHundredCircleInRange(51, 67);
         highLightCircleInRange([63]);
-        maxIndex = 6;
-      } else if (response.index === 7 && !isComplete && response.index > maxIndex) {
+        maxIndex = 7;
+      } else if (response.index === 8 && !isComplete && response.index > maxIndex) {
         isComplete = true;
         createNervousNintyPoints();
-        maxIndex = 7;
+        maxIndex = 8;
       }
     };
 
@@ -790,6 +830,10 @@ class SachinCenturies extends Component {
         .attr("height", 20);
 
     const bottomLegendVis = d3.select(".ic-sachin-century-legend-bottom").append("svg:svg")
+        .attr("width", width)
+        .attr("height", 20);
+
+    const lastLegendVis = d3.select(".ic-sachin-century-legend-last").append("svg:svg")
         .attr("width", width)
         .attr("height", 20);
 
@@ -844,6 +888,19 @@ class SachinCenturies extends Component {
         .attr("x", 135 + innerPadding.left)
         .attr("y", 15)
         .text("No Results");
+
+    lastLegendVis.append("rect")
+        .attr("x", 40)
+        .attr("y", 0)
+        .attr("width", 20)
+        .attr("height", 20)
+        .attr("fill", "#E09F7D")
+        .attr("fill-opacity", "0.2");
+
+    lastLegendVis.append("text")
+        .attr("x", 25 + innerPadding.left)
+        .attr("y", 15)
+        .text("Tennis Elbow Injury");
   }
 
   render() {
@@ -853,18 +910,20 @@ class SachinCenturies extends Component {
             <div className="scroll__graphic">
               <div className="ic-sachin-century-legend-top"/>
               <div className="ic-sachin-century-legend-bottom"/>
+              <div className="ic-sachin-century-legend-last"/>
               <div className="ic-sachin-century-content"/>
             </div>
             <div className="scroll__text">
               <div className='step sachin' data-step='1'><p>Surprisingly, it took Sachin 5 years to make his first century.</p></div>
               <div className='step sachin' data-step='2'><p>Later he kept on hitting 100's at will, almost.</p></div>
-              <div className='step sachin' data-step='3'><p>In the beginning of the 2004-05 season, Sachin got injured with the "Tennis Elbow".</p></div>
-              <div className='step sachin' data-step='4'><p>That followed by defeat for India in 4 matches where he had scored a century.</p></div>
-              <div className='step sachin' data-step='5'><p>Three of those matches were against Pakistan, the biggest rival of India in cricket.</p></div>
-              <div className='step sachin' data-step='6'><p>That fired the rumour about Sachin's centuries being unlucky for India.</p></div>
-              <div className='step sachin' data-step='7'><p>In 2010, Sachin became the first man on the planet to hit a ODI 200 (not out).</p></div>
-              <div className='step sachin' data-step='8'><p>Sachin also holds the record for most nervous ninty scores (27 times in all three formats).</p></div>
-              <div className='step sachin' data-step='9' style={{ marginBottom: '0px' }}/>
+              <div className='step sachin' data-step='3'><p>And India won majority of those matches.</p></div>
+              <div className='step sachin' data-step='4'><p>In the beginning of the 2004-05 season, Sachin got injured with the "Tennis Elbow".</p></div>
+              <div className='step sachin' data-step='5'><p>That followed by defeat for India in 4 matches where he had scored a century.</p></div>
+              <div className='step sachin' data-step='6'><p>Three of those matches were against Pakistan, the biggest rival of India in cricket.</p></div>
+              <div className='step sachin' data-step='7'><p>That fired the rumour about Sachin's centuries being unlucky for India.</p></div>
+              <div className='step sachin' data-step='8'><p>In 2010, Sachin became the first man on the planet to hit a ODI 200 (not out).</p></div>
+              <div className='step sachin' data-step='9'><p>Sachin also holds the record for most nervous ninty scores (27 times in all three formats).</p></div>
+              <div className='step sachin' data-step='10' style={{ marginBottom: '0px' }}/>
             </div>
           </div>
         </div>

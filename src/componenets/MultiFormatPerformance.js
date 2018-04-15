@@ -2,43 +2,38 @@ import React, { Component } from 'react'
 import * as d3 from 'd3';
 import d3tip from 'd3-tip';
 
+// STATSGURU
 const performanceCount = [
   {
     'team': 'AUS',
     'name': 'Australia',
     'won': {
-      'test': 382,
-      'odi': 555,
-      't20': 48,
+      'test': 383,
+      'odi': 556,
     },
     'lost': {
-      'test': 216,
-      'odi': 311,
-      't20': 46,
+      'test': 219,
+      'odi': 312,
     },
     'draw': {
       'test': 210,
       'odi': 43,
-      't20': 1,
     }
   },
   {
     'team': 'IND',
     'name': 'India',
     'won': {
-      'test': 143,
-      'odi': 478,
-      't20': 56,
+      'test': 144,
+      'odi': 483,
     },
     'lost': {
       'test': 160,
-      'odi': 408,
-      't20': 33,
+      'odi': 409,
     },
     'draw': {
       'test': 217,
       'odi': 47,
-      't20': 2,
     }
   },
   {
@@ -46,18 +41,15 @@ const performanceCount = [
     'name': 'Bangladesh',
     'won': {
       'test': 10,
-      'odi': 107,
-      't20': 21,
+      'odi': 108,
     },
     'lost': {
-      'test': 79,
-      'odi': 223,
-      't20': 46,
+      'test': 80,
+      'odi': 225,
     },
     'draw': {
-      'test': 15,
+      'test': 16,
       'odi': 7,
-      't20': 2,
     }
   },
   {
@@ -66,55 +58,46 @@ const performanceCount = [
     'won': {
       'test': 132,
       'odi': 469,
-      't20': 73,
     },
     'lost': {
-      'test': 121,
+      'test': 122,
       'odi': 394,
-      't20': 47,
     },
     'draw': {
-      'test': 159,
+      'test': 158,
       'odi': 26,
-      't20': 0,
     }
   },
   {
     'team': 'ENG',
     'name': 'England',
     'won': {
-      'test': 355,
-      'odi': 345,
-      't20': 47,
+      'test': 356,
+      'odi': 350,
     },
     'lost': {
-      'test': 295,
-      'odi': 323,
-      't20': 45,
+      'test': 296,
+      'odi': 325,
     },
     'draw': {
       'test': 345,
       'odi': 32,
-      't20': 4,
     }
   },
   {
     'team': 'NZ',
     'name': 'New Zealand',
     'won': {
-      'test': 91,
-      'odi': 332,
-      't20': 53,
+      'test': 92,
+      'odi': 334,
     },
     'lost': {
       'test': 170,
-      'odi': 363,
-      't20': 46,
+      'odi': 365,
     },
     'draw': {
-      'test': 163,
+      'test': 164,
       'odi': 45,
-      't20': 4,
     }
   },
   {
@@ -122,56 +105,47 @@ const performanceCount = [
     'name': 'West Indies',
     'won': {
       'test': 168,
-      'odi': 380,
-      't20': 46,
+      'odi': 385,
     },
     'lost': {
       'test': 187,
-      'odi': 355,
-      't20': 43,
+      'odi': 356,
     },
     'draw': {
       'test': 175,
       'odi': 36,
-      't20': 5,
     }
   },
   {
     'team': 'SL',
     'name': 'Sri Lanka',
     'won': {
-      'test': 84,
-      'odi': 375,
-      't20': 52,
+      'test': 85,
+      'odi': 376,
     },
     'lost': {
       'test': 100,
       'odi': 399,
-      't20': 49,
     },
     'draw': {
-      'test': 83,
+      'test': 84,
       'odi': 41,
-      't20': 1,
     }
   },
   {
     'team': 'SA',
     'name': 'South Africa',
     'won': {
-      'test': 158,
-      'odi': 361,
-      't20': 59,
+      'test': 161,
+      'odi': 362,
     },
     'lost': {
-      'test': 138,
-      'odi': 200,
-      't20': 40,
+      'test': 140,
+      'odi': 205,
     },
     'draw': {
       'test': 124,
       'odi': 22,
-      't20': 1,
     }
   },
   {
@@ -179,18 +153,15 @@ const performanceCount = [
     'name': 'Zimbabwe',
     'won': {
       'test': 11,
-      'odi': 131,
-      't20': 13,
+      'odi': 134,
     },
     'lost': {
       'test': 67,
-      'odi': 346,
-      't20': 40,
+      'odi': 354,
     },
     'draw': {
       'test': 27,
-      'odi': 17,
-      't20': 1,
+      'odi': 18,
     }
   }
 ];
@@ -258,7 +229,7 @@ class MultiFormatPerformance extends Component {
 
     // test tooltip
     const testTip = d3tip().attr('class', 'd3-tip').offset([-10, 0]).html(function(d) {
-      return "" + (d.name) + " (Test)</br></br>" + "Won: " + d.won.test + "</br>" + "Lost: " + d.lost.test + "</br>" + "Draw: " + d.draw.test;
+      return "" + (d.name) + " (Test)</br></br>" + "Won: " + d.won.test + "</br>" + "Lost: " + d.lost.test + "</br>" + "No Results: " + d.draw.test;
     });
 
     testTip.direction(function(d) {
@@ -269,7 +240,7 @@ class MultiFormatPerformance extends Component {
 
     // odi tooltip
     const odiTip = d3tip().attr('class', 'd3-tip').offset([-10, 0]).html(function(d) {
-      return "" + (d.name) + " (ODI)</br></br>" + "Won: " + d.won.odi + "</br>" + "Lost: " + d.lost.odi + "</br>" + "Draw: " + d.draw.odi;
+      return "" + (d.name) + " (ODI)</br></br>" + "Won: " + d.won.odi + "</br>" + "Lost: " + d.lost.odi + "</br>" + "No Results: " + d.draw.odi;
     });
 
     odiTip.direction(function(d) {

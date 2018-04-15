@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import RandomTeamTable from './componenets/RandomTeam'
-import TeamMatrix from './componenets/TeamMatrix'
+// import TeamMatrix from './componenets/TeamMatrix'
 import SachinCenturies from './componenets/SachinCenturies'
 import WorldMap from './componenets/WorldMap'
 import Ashes from './componenets/Ashes'
-import RunChase from './componenets/RunChase'
-import DhoniFinishes from './componenets/DhoniFinishes'
-import IndividualScoreWithTime from './componenets/IndividualScoreWithTime'
-import StrikeAndAverageODI from './componenets/StrikeAndAverageODI'
+// import RunChase from './componenets/RunChase'
+// import DhoniFinishes from './componenets/DhoniFinishes'
+// import IndividualScoreWithTime from './componenets/IndividualScoreWithTime'
+// import StrikeAndAverageODI from './componenets/StrikeAndAverageODI'
 import MultiFormatPerformance from './componenets/MultiFormatPerformance'
 import PlayerAge from './componenets/PlayerAge'
 import ComparisonTriangle from './componenets/ComparisonTriangle'
@@ -79,29 +79,7 @@ import time
 
     
 
-        <div>
-          <RandomTeamTable/>
-        </div>
 
-        <div>
-          <TeamMatrix/>
-        </div>
-
-        <div>
-          <SachinCenturies/>
-        </div>
-
-        <div>
-          <WorldMap/>
-        </div>
-
-        <div>
-          <Ashes/>
-        </div>
-
-        <div>
-          <RunChase/>
-        </div>
 
 -->
 * */
@@ -113,19 +91,15 @@ class App extends Component {
         <header className="ic-header">
           <h1 className="ic-title">Inside Cricket</h1>
           <p>A fifth umpire' view of your favorite sport</p>
-          <p className="ic-author"><a href="https://twitter.com/hackpravj" target="_blank">Pravendra Singh</a></p>
+          <p className="ic-author"><a href="https://hackpravj.com" target="_blank">Pravendra Singh</a></p>
         </header>
 
         <p className="ic-intro">
-          Even though it's fighting to get a global attention, Cricket is one of the most followed sports in the world. So there is a good chance that you've heard of <i>Sir Don Bradman</i> or <i>Sachin Tendulkar</i>.
+          Cricket is one of the most followed sports in the world. So there is a good chance that you've heard of <i>Sir Don Bradman</i> or <i>Sachin Tendulkar</i>. In India, it is not only a sport but a religion.
         </p>
 
         <p className="ic-intro">
-          Cricket is not only a sport but a religion in India. I can vouch for my neighboring countries also that they have a similar situation because I have seen their love for the game.
-        </p>
-
-        <p className="ic-intro">
-          But when you look at it closely, you find that the situation is <i>not the same everywhere</i>.
+          I can vouch for my neighboring countries that they have a similar situation. But when you look at it closely, you find that the situation is <i>not the same everywhere</i>.
         </p>
 
         <div className="ic-section-title"># Reach of cricket</div>
@@ -159,7 +133,7 @@ class App extends Component {
           As per the condition now, Cricket is fighting with <i>Soccer</i> and <i>Basketball</i> for a global spot. The ICC is working on the global expansion but they find themselves in a dilemma where the new T20 format is becoming a threat to the old Test match format.
         </p>
 
-        <div className="ic-section-title"># Game of thrones</div>
+        <div className="ic-section-title"># Test of thrones</div>
 
         <p className="ic-intro">
           Speaking of a global spot, we all support our home teams but it's not always that they win the matches.
@@ -201,6 +175,14 @@ class App extends Component {
 
         <p className="ic-intro">
           As you have seen, different teams had their own "ruling time" in the last century of Cricket. Teams like India (Current Test Champions) and New Zealand are moving up the ladder after being in the bottom of the list.
+        </p>
+
+        <p className="ic-intro">
+          The following visual represents where does a team stands in <b style={{ color: 'lightgreen' }}>Test</b> and <b  style={{ color: 'skyblue' }}>ODI</b> matches. Teams (AUS, ENG, PAK, and SA) who have <b style={{ color: 'green' }}>won more matches</b> than they have lost, are <b style={{ color: 'green' }}>above the dashed line</b>.
+        </p>
+
+        <p className="ic-intro">
+          Similarly, IND and WI have lost relatively more <b style={{ color: 'lightgreen' }}>Test</b> matches, putting them <b style={{ color: 'rgb(250, 100, 110)' }}>below the dashed line</b>.
         </p>
 
         <div>
@@ -257,8 +239,40 @@ class App extends Component {
           Ever wondered what's the ideal age to start playing Cricket so that you can be successful one day?
         </p>
 
+        <p className="ic-intro">
+          The following bar-chart shows the age distribution of successful players in Cricket. The definition of a successful player in this case is <i>"a player who has either scored 5000+ runs OR taken 200+ wickets (in all 3 formats of the game)"</i>.
+        </p>
+
         <div>
           <PlayerAge/>
+        </div>
+
+        <div className="ic-section-title"># Dream XI: People's Choice</div>
+
+        <p className="ic-intro">
+          You might have seen experts releasing their all time favorite teams where they list out famous performers in the game.
+        </p>
+
+        <p className="ic-intro">
+          Today, you are just a click away from being that expert. The following team represents 11 players randomly selected from the ICC ODI team of the year listings from 2004 to 2017.
+        </p>
+
+        <div>
+          <RandomTeamTable/>
+        </div>
+
+        <hr/>
+
+        <div className="ic-intro" style={{ textAlign: 'center' }}>
+          <a class="github-button" href="https://github.com/pravj/inside-cricket" data-size="large" data-show-count="true" aria-label="Star pravj/inside-cricket on GitHub">Star</a>
+        </div>
+
+        <div className="ic-intro" style={{ fontSize: '8px' }}>
+          <b style={{ fontSize: '10px' }}>Disclaimer</b>: The information presented in this article is intended solely to provide general guidance. In case you have noticed some error in the data presented here, please reach out to <i>hackpravj@gmail.com</i> OR <a target="_blank" href="https://twitter.com/hackpravj">@hackpravj</a>. The article was last updated on April 15, 2018 (IST).
+        </div>
+
+        <div className="ic-intro" style={{ fontSize: '8px' }}>
+          <b style={{ fontSize: '10px' }}>Credit</b>: The data used in visuals is sourced (collected) from <a target="_blank" href="http://stats.espncricinfo.com/ci/engine/stats/index.html">ESPN cricinfo STATSGURU</a>, <a target="_blank" href="http://www.howstat.com/cricket/home.asp">HOWSTAT</a>, and <a target="_blank" href="https://en.wikipedia.org/wiki/ICC_ODI_Team_of_the_Year">Wikipedia</a>. Finally, as it comes to an end, the real credit goes to Tamsa for helping me from idea to the final version. And of course, to me, who implemented this. \o/.
         </div>
 
       </div>
