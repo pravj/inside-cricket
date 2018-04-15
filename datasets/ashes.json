@@ -1,0 +1,355 @@
+{
+	"dataset": "Ashes",
+	"data": [
+  {
+    "holder": "ENG",
+    "winner": "ENG",
+    "year": "1882-83"
+  },
+  {
+    "holder": "ENG",
+    "winner": "ENG",
+    "year": "1884"
+  },
+  {
+    "holder": "ENG",
+    "winner": "ENG",
+    "year": "1884-85"
+  },
+  {
+    "holder": "ENG",
+    "winner": "ENG",
+    "year": "1886"
+  },
+  {
+    "holder": "ENG",
+    "winner": "ENG",
+    "year": "1886-87"
+  },
+  {
+    "holder": "ENG",
+    "winner": "ENG",
+    "year": "1887-88"
+  },
+  {
+    "holder": "ENG",
+    "winner": "ENG",
+    "year": "1888"
+  },
+  {
+    "holder": "ENG",
+    "winner": "ENG",
+    "year": "1890"
+  },
+  {
+    "holder": "AUS",
+    "winner": "AUS",
+    "year": "1891-92"
+  },
+  {
+    "holder": "ENG",
+    "winner": "ENG",
+    "year": "1893"
+  },
+  {
+    "holder": "ENG",
+    "winner": "ENG",
+    "year": "1894-95"
+  },
+  {
+    "holder": "ENG",
+    "winner": "ENG",
+    "year": "1896"
+  },
+  {
+    "holder": "AUS",
+    "winner": "AUS",
+    "year": "1897-98"
+  },
+  {
+    "holder": "AUS",
+    "winner": "AUS",
+    "year": "1899"
+  },
+  {
+    "holder": "AUS",
+    "winner": "AUS",
+    "year": "1901-02"
+  },
+  {
+    "holder": "AUS",
+    "winner": "AUS",
+    "year": "1902"
+  },
+  {
+    "holder": "ENG",
+    "winner": "ENG",
+    "year": "1903-04"
+  },
+  {
+    "holder": "ENG",
+    "winner": "ENG",
+    "year": "1905"
+  },
+  {
+    "holder": "AUS",
+    "winner": "AUS",
+    "year": "1907-08"
+  },
+  {
+    "holder": "AUS",
+    "winner": "AUS",
+    "year": "1909"
+  },
+  {
+    "holder": "ENG",
+    "winner": "ENG",
+    "year": "1911-12"
+  },
+  {
+    "holder": "ENG",
+    "winner": "ENG",
+    "year": "1912"
+  },
+  {
+    "holder": "AUS",
+    "winner": "AUS",
+    "year": "1920-21"
+  },
+  {
+    "holder": "AUS",
+    "winner": "AUS",
+    "year": "1921"
+  },
+  {
+    "holder": "AUS",
+    "winner": "AUS",
+    "year": "1924-25"
+  },
+  {
+    "holder": "ENG",
+    "winner": "ENG",
+    "year": "1926"
+  },
+  {
+    "holder": "ENG",
+    "winner": "ENG",
+    "year": "1928-29"
+  },
+  {
+    "holder": "AUS",
+    "winner": "AUS",
+    "year": "1930"
+  },
+  {
+    "holder": "ENG",
+    "winner": "ENG",
+    "year": "1932-33"
+  },
+  {
+    "holder": "AUS",
+    "winner": "AUS",
+    "year": "1934"
+  },
+  {
+    "holder": "AUS",
+    "winner": "AUS",
+    "year": "1936-37"
+  },
+  {
+    "holder": "AUS",
+    "winner": "DRAW",
+    "year": "1938"
+  },
+  {
+    "holder": "AUS",
+    "winner": "AUS",
+    "year": "1946-47"
+  },
+  {
+    "holder": "AUS",
+    "winner": "AUS",
+    "year": "1948"
+  },
+  {
+    "holder": "AUS",
+    "winner": "AUS",
+    "year": "1950-51"
+  },
+  {
+    "holder": "ENG",
+    "winner": "ENG",
+    "year": "1953"
+  },
+  {
+    "holder": "ENG",
+    "winner": "ENG",
+    "year": "1954-55"
+  },
+  {
+    "holder": "ENG",
+    "winner": "ENG",
+    "year": "1956"
+  },
+  {
+    "holder": "AUS",
+    "winner": "AUS",
+    "year": "1958-59"
+  },
+  {
+    "holder": "AUS",
+    "winner": "AUS",
+    "year": "1961"
+  },
+  {
+    "holder": "AUS",
+    "winner": "DRAW",
+    "year": "1962-63"
+  },
+  {
+    "holder": "AUS",
+    "winner": "AUS",
+    "year": "1964"
+  },
+  {
+    "holder": "AUS",
+    "winner": "DRAW",
+    "year": "1965-66"
+  },
+  {
+    "holder": "AUS",
+    "winner": "DRAW",
+    "year": "1968"
+  },
+  {
+    "holder": "ENG",
+    "winner": "ENG",
+    "year": "1970-71"
+  },
+  {
+    "holder": "ENG",
+    "winner": "DRAW",
+    "year": "1972"
+  },
+  {
+    "holder": "AUS",
+    "winner": "AUS",
+    "year": "1974-75"
+  },
+  {
+    "holder": "AUS",
+    "winner": "AUS",
+    "year": "1975"
+  },
+  {
+    "holder": "ENG",
+    "winner": "ENG",
+    "year": "1977"
+  },
+  {
+    "holder": "ENG",
+    "winner": "ENG",
+    "year": "1978-79"
+  },
+  {
+    "holder": "ENG",
+    "winner": "ENG",
+    "year": "1981"
+  },
+  {
+    "holder": "AUS",
+    "winner": "AUS",
+    "year": "1982-83"
+  },
+  {
+    "holder": "ENG",
+    "winner": "ENG",
+    "year": "1985"
+  },
+  {
+    "holder": "ENG",
+    "winner": "ENG",
+    "year": "1986-87"
+  },
+  {
+    "holder": "AUS",
+    "winner": "AUS",
+    "year": "1989"
+  },
+  {
+    "holder": "AUS",
+    "winner": "AUS",
+    "year": "1990-91"
+  },
+  {
+    "holder": "AUS",
+    "winner": "AUS",
+    "year": "1993"
+  },
+  {
+    "holder": "AUS",
+    "winner": "AUS",
+    "year": "1994-95"
+  },
+  {
+    "holder": "AUS",
+    "winner": "AUS",
+    "year": "1997"
+  },
+  {
+    "holder": "AUS",
+    "winner": "AUS",
+    "year": "1998-99"
+  },
+  {
+    "holder": "AUS",
+    "winner": "AUS",
+    "year": "2001"
+  },
+  {
+    "holder": "AUS",
+    "winner": "AUS",
+    "year": "2002-03"
+  },
+  {
+    "holder": "ENG",
+    "winner": "ENG",
+    "year": "2005"
+  },
+  {
+    "holder": "AUS",
+    "winner": "AUS",
+    "year": "2006-07"
+  },
+  {
+    "holder": "ENG",
+    "winner": "ENG",
+    "year": "2009"
+  },
+  {
+    "holder": "ENG",
+    "winner": "ENG",
+    "year": "2010-11"
+  },
+  {
+    "holder": "ENG",
+    "winner": "ENG",
+    "year": "2013"
+  },
+  {
+    "holder": "AUS",
+    "winner": "AUS",
+    "year": "2013-14"
+  },
+  {
+    "holder": "ENG",
+    "winner": "ENG",
+    "year": "2015"
+  },
+  {
+    "holder": "AUS",
+    "winner": "AUS",
+    "year": "2017"
+  }
+] 
+}
